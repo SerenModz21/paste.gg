@@ -7,7 +7,7 @@
 import PasteGG from "../src/index"
 const paste = new PasteGG();
 
-(async () => {
+const postTest = async () => {
   const post = await paste.post({
     name: "text.txt",
     description: "this is a test",
@@ -23,4 +23,22 @@ const paste = new PasteGG();
 
   console.log(post)
   console.log(`https://paste.gg/${post?.result.id ?? "null"}`)
+}
+
+const updateTest = async () => {
+  const post = await paste.update("", {
+    description: "This is an updated description for a test"
+  })
+
+  console.log(post)
+}
+
+const deleteTest = async () => {
+  const post = await paste.delete("", "")
+
+  console.log(post)
+}
+
+(async () => {
+  await deleteTest()
 })()

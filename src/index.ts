@@ -30,7 +30,8 @@ class PasteGG {
   private headers(auth?: string, content?: boolean): IHeader {
     const headers: IHeader = {}
 
-    if (this.#auth) headers.Authorization = `Key ${auth ?? this.#auth}`
+    if (this.#auth) headers.Authorization = `Key ${this.#auth}`
+    if (auth?.length) headers.Authorization = `Key ${auth}`
     if (content) headers["Content-Type"] = "application/json"
 
     return headers
@@ -70,9 +71,9 @@ class PasteGG {
    * Deletes an existing paste.
    * @param {string} id The ID of the paste to delete.
    * @param {string} key Auth key or deletion key, enter "auth" for auth key
-   * @returns {Promise<null | PasteOutput>}
+   * @returns {Promise<void | PasteOutput>}
    */
-  public async delete(id: string, key: string): Promise<null | PasteOutput> {
+  public async delete(id: string, key: string): Promise<void | PasteOutput> {
     const res = await fetch(`${this.#url}/pastes/${id}`, {
       method: "DELETE",
       headers: this.headers(key?.toLowerCase() !== "auth" ? key : null)
@@ -85,12 +86,15 @@ class PasteGG {
    * Update an existing paste.
    * @param {string} id The ID for the paste to update.
    * @param {UpdatePost} options The options you wish to update.
-   * @returns {Promise<null | PasteOutput>}
+   * @returns {Promise<void | PasteOutput>}
    */
-  public async update(id: string, options: UpdatePost): Promise<null | PasteOutput> {
+  public async update(id: string, options: UpdatePost): Promise<void | PasteOutput> {
+    if (!this.#auth) throw new Error("An auth key is required for this endpoint!");
+
     const res = await fetch(`${this.#url}/pastes/${id}`, {
       method: "PATCH",
-      headers: this.headers(null, true)
+      headers: this.headers(null, true),
+      body: JSON.stringify(options)
     })
 
     return res.json()
