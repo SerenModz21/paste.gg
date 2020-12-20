@@ -38,7 +38,6 @@ await pasteGG.get("idHere", true)
 <br/>
 
 > Post a new paste ([Click here for more options](https://github.com/ascclemens/paste/blob/master/api.md#post-pastes))
-<br/>
 ```ts
 await pasteGG.post({
   name: "Paste name", // Optional
