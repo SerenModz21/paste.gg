@@ -1,0 +1,24 @@
+{
+  "name": "paste.gg",
+  "version": "1.0.0",
+  "description": "A wrapper for the paste.gg api",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Seren_Modz 21",
+  "repository": "SerenModz21/paste.gg",
+  "bugs": "https://github.com/SerenModz21/paste.gg",
+  "license": "MIT",
+  "keywords": [
+    "paste.gg",
+    "api",
+    "wrapper"
+  ],
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "@types/node-fetch": "^2.5.7",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
