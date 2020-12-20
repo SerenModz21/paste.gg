@@ -4,7 +4,6 @@
  * Refer to the README for more information.
  */
 
-
 import fetch from "node-fetch"
 import { PasteGGOptions, PasteOutput, PostPaste, IHeader, UpdatePost } from "./interfaces"
 
@@ -13,6 +12,12 @@ class PasteGG {
   readonly #url: string;
   readonly options: PasteGGOptions;
 
+  /**
+   * Create a new instance of PasteGG
+   * @param {string} auth Optional auth key
+   * @param {PasteGGOptions} options Options for the paste server
+   * @class {PasteGG}
+   */
   constructor(auth?: string, options: PasteGGOptions = {
     baseUrl: "https://api.paste.gg",
     version: 1

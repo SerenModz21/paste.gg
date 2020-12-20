@@ -4,7 +4,6 @@
  * Refer to the README for more information.
  */
 
-
 import PasteGG from "../src/index"
 const paste = new PasteGG();
 
