@@ -1,5 +1,5 @@
 # paste.gg
-A wrapper for the paste.gg api <br/>
+A wrapper for the paste.gg api. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls. <br/>
 
 **[Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
 **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
