@@ -7,7 +7,7 @@
 import fetch from "node-fetch"
 import { PasteGGOptions, PasteOutput, PostPaste, IHeader, UpdatePost } from "./interfaces"
 
-class PasteGG {
+export default class PasteGG {
   /** Auth key for paste.gg API */
   readonly #auth: string;
   /** The full URL for the API */
@@ -118,5 +118,4 @@ class PasteGG {
   }
 }
 
-export default PasteGG;
 export { PasteGG }
