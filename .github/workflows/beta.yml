@@ -25,6 +25,8 @@ jobs:
         run: yarn --ignore-scripts --frozen-lockfile
       - name: Build Code
         run: yarn build
+      - name: Update Types
+        run: yarn types
       - name: Push new code
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
