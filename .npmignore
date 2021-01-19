@@ -1,5 +1,9 @@
+.idea/
 src/
 test/
-LICENSE
 node_modules/
+*.tsbuildinfo
+yarn-debug.log*
+yarn-error.log*
+LICENSE
 tsconfig.json
