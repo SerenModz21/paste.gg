@@ -467,13 +467,13 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces.ts": {
-        "version": "475957d4ea725ac55a075f7948a727d438eeba4b22b2d80dfeb45589a162ef8f",
+        "version": "040b72a2e28a43f8ca2dce08edafa3ae2e67c94c4465af408fc0affcadddfc0b",
         "signature": "01f5f072cc4c06d436259c5e4976c804765425b3ea668053ae207e07d405a220",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "a0f5b1699c97c006c5b0dc9612d885ebde0d0c5cd98a850e0550c29a9af0a952",
-        "signature": "e424b7feb34c26276b56ed19137e5631a46c8f3e99e705ac8246cac926657ad9",
+        "version": "d22c7aa10e11ac3a3d3207d895528a3f2c0fdd2084735991856528dcd5ea6c88",
+        "signature": "cdfec95799b49c1470360a02e1e19f2860d7ea40eacb2785be58683e4352a469",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/detect-indent/index.d.ts": {

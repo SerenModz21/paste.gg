@@ -12,7 +12,7 @@ declare module 'paste.gg' {
                 * Create a new instance of PasteGG
                 * @param {string} auth Optional auth key
                 * @param {PasteGGOptions} options Options for the paste server
-                * @class {PasteGG}
+                * @class PasteGG
                 * @public
                 */
             constructor(auth?: string, options?: PasteGGOptions);
