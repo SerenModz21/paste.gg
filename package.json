@@ -1,6 +1,6 @@
 {
   "name": "paste.gg",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A wrapper for the paste.gg api",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,6 +16,7 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "test": "ts-node test/index.ts",
+    "types": "npx dts-bundle --removeSource --name paste.gg --main ./dist --out index.d.ts --baseDir ./dist",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
