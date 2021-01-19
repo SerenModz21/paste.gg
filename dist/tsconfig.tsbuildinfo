@@ -472,8 +472,28 @@
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "eceaab6c82b8b2daffccea31aafad8b50c50cae626f50bbe9e40aa2dd72cec1e",
+        "version": "2536acb410ee5faac61e0f065353a25b6e7af2abaf2b9c59071f78102f4113e3",
         "signature": "3bafa635c2d59387499c3f3b839e9238a67ceb93d6aebad1e8c0f645158098b1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/detect-indent/index.d.ts": {
+        "version": "c459613791d75795ffe6b9d74a12949b2e2c5ec5a912105e7215ce62cf3a67a0",
+        "signature": "c459613791d75795ffe6b9d74a12949b2e2c5ec5a912105e7215ce62cf3a67a0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/minimatch/index.d.ts": {
+        "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/glob/index.d.ts": {
+        "version": "e10272a107d3dd110294e47d4d083ebc929d580501feee4bd1cd243ab86ed3f7",
+        "signature": "e10272a107d3dd110294e47d4d083ebc929d580501feee4bd1cd243ab86ed3f7",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/mkdirp/index.d.ts": {
+        "version": "a877eff63216a52ca8d06431e888e3e3522c323361537d156f94f877870ef21c",
+        "signature": "a877eff63216a52ca8d06431e888e3e3522c323361537d156f94f877870ef21c",
         "affectsGlobalScope": false
       }
     },
@@ -502,6 +522,12 @@
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {
+      "../node_modules/@types/glob/index.d.ts": [
+        "../node_modules/@types/minimatch/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@types/node-fetch/index.d.ts": [
         "../node_modules/@types/node-fetch/externals.d.ts",
         "../node_modules/@types/node/http.d.ts",
@@ -687,6 +713,12 @@
       ]
     },
     "exportedModulesMap": {
+      "../node_modules/@types/glob/index.d.ts": [
+        "../node_modules/@types/minimatch/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@types/node-fetch/index.d.ts": [
         "../node_modules/@types/node-fetch/externals.d.ts",
         "../node_modules/@types/node/http.d.ts",
@@ -871,6 +903,10 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "../node_modules/@types/detect-indent/index.d.ts",
+      "../node_modules/@types/glob/index.d.ts",
+      "../node_modules/@types/minimatch/index.d.ts",
+      "../node_modules/@types/mkdirp/index.d.ts",
       "../node_modules/@types/node-fetch/externals.d.ts",
       "../node_modules/@types/node-fetch/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
