@@ -13,6 +13,8 @@ import {
   UpdatePost,
   PostFiles,
   Files,
+  OutputResult,
+  PostContent,
 } from "./interfaces";
 
 class PasteGG {
@@ -164,48 +166,68 @@ export { PasteGG };
 /**
  * The header options
  * @typedef {IHeader} IHeader
- * @property {string} [Content-Type]
- * @property {string} [Authorization]
+ * @property {string} [Content-Type] The request content type
+ * @property {string} [Authorization] Authorization for the request
  */
 
 /**
  * @typedef {PasteGGOptions} PasteGGOptions
- * @property {string} baseUrl
- * @property {number} version
+ * @property {string} baseUrl The base URL of the API
+ * @property {number} version The version of the API
+ */
+
+/**
+ * @typedef {OutputResult} OutputResult
+ * @property {string} id The ID of the created paste
+ * @property {string} [name] The name of the created paste
+ * @property {string} [description] The description of the created paste
+ * @property {public | unlisted | private} [visibility=unlisted] The visibility of the created paste
+ * @property {string} created_at The date the paste was created
+ * @property {string} updated_at The date the paste was last updated
+ * @property {string} [expires] The date when the paste expires
+ * @property {Files[]} [files] The files used in the created paste
+ * @property {string} [deletion_key] The deletion key of the created paste
  */
 
 /**
  * @typedef {PasteOutput} PasteOutput
- * @property {string} status
- * @property {PasteOutput.result} [result]
- * @property {string} [error]
- * @property {string} [message]
+ * @property {string} status The output status
+ * @property {OutputResult} [result] The result data object
+ * @property {string} [error] The error key
+ * @property {string} [message] The error message
  */
 
 /**
  * @typedef {PostPaste} PostPaste
- * @property {string} [name]
- * @property {string} [description]
- * @property {public | unlisted | private} [visibility]
- * @property {string} [expires]
- * @property {PostFiles[]} files
+ * @property {string} [name] The name of the paste
+ * @property {string} [description] The description of the paste (must be less than 25 KiB)
+ * @property {public | unlisted | private} [visibility=unlisted] The visibility of the paste
+ * @property {string} [expires] The expiration date of the paste (must be a UTC ISO 8601 string)
+ * @property {PostFiles[]} files Array of files to add to the paste (at least one file)
  */
 
 /**
  * @typedef {UpdatePost} UpdatePost
- * @property {string} [name]
- * @property {string} description
+ * @property {string} [name] The new name of the post
+ * @property {string} description The new description of the post
  */
 
 /**
  * @typedef {Files} Files
- * @property {string} id
- * @property {string} name
- * @property {string | null} highlight_language
+ * @property {string} id The ID of the file
+ * @property {string} name The name of the file
+ * @property {string | null} highlight_language The syntax highlighting language used
+ */
+
+/**
+ * @typedef {PostContent} PostContent
+ * @property {text | base64 | gzip | xz} format The format of the file
+ * @property {string} [highlight_language] The syntax highlighting language to use
+ * @property {string} value The value of the file contents
  */
 
 /**
  * @typedef {PostFiles} PostFiles
- * @property {string} [name]
- * @property {PostFiles.content} content
+ * @property {string} [name] The name of the file
+ * @property {PostContent} content The content of the file
  */

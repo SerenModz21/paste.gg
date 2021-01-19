@@ -1,5 +1,5 @@
 {
-  "meta": { "generator": "0.9.0", "format": 20, "date": 1611074030278 },
+  "meta": { "generator": "0.9.0", "format": 20, "date": 1611075584133 },
   "custom": {
     "general": {
       "name": "General",
@@ -173,8 +173,18 @@
       "description": "The header options",
       "type": [[["IHeader"]]],
       "props": [
-        { "name": "Content-Type", "optional": true, "type": [[["string"]]] },
-        { "name": "Authorization", "optional": true, "type": [[["string"]]] }
+        {
+          "name": "Content-Type",
+          "description": "The request content type",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "Authorization",
+          "description": "Authorization for the request",
+          "optional": true,
+          "type": [[["string"]]]
+        }
       ],
       "meta": { "line": 152, "file": "index.js", "path": "dist" }
     },
@@ -182,40 +192,145 @@
       "name": "PasteGGOptions",
       "type": [[["PasteGGOptions"]]],
       "props": [
-        { "name": "baseUrl", "type": [[["string"]]] },
-        { "name": "version", "type": [[["number"]]] }
+        {
+          "name": "baseUrl",
+          "description": "The base URL of the API",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "version",
+          "description": "The version of the API",
+          "type": [[["number"]]]
+        }
       ],
       "meta": { "line": 158, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "OutputResult",
+      "type": [[["OutputResult"]]],
+      "props": [
+        {
+          "name": "id",
+          "description": "The ID of the created paste",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "name",
+          "description": "The name of the created paste",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "description",
+          "description": "The description of the created paste",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "visibility",
+          "description": "The visibility of the created paste",
+          "optional": true,
+          "default": "unlisted",
+          "type": [[["public"]], [["unlisted"]], [["private"]]]
+        },
+        {
+          "name": "created_at",
+          "description": "The date the paste was created",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "updated_at",
+          "description": "The date the paste was last updated",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "expires",
+          "description": "The date when the paste expires",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "files",
+          "description": "The files used in the created paste",
+          "optional": true,
+          "type": [
+            [
+              ["Array", "<"],
+              ["Files", ">"]
+            ]
+          ]
+        },
+        {
+          "name": "deletion_key",
+          "description": "The deletion key of the created paste",
+          "optional": true,
+          "type": [[["string"]]]
+        }
+      ],
+      "meta": { "line": 163, "file": "index.js", "path": "dist" }
     },
     {
       "name": "PasteOutput",
       "type": [[["PasteOutput"]]],
       "props": [
-        { "name": "status", "type": [[["string"]]] },
+        {
+          "name": "status",
+          "description": "The output status",
+          "type": [[["string"]]]
+        },
         {
           "name": "result",
+          "description": "The result data object",
           "optional": true,
-          "type": [[["PasteOutputresult"]]]
+          "type": [[["OutputResult"]]]
         },
-        { "name": "error", "optional": true, "type": [[["string"]]] },
-        { "name": "message", "optional": true, "type": [[["string"]]] }
+        {
+          "name": "error",
+          "description": "The error key",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "message",
+          "description": "The error message",
+          "optional": true,
+          "type": [[["string"]]]
+        }
       ],
-      "meta": { "line": 163, "file": "index.js", "path": "dist" }
+      "meta": { "line": 175, "file": "index.js", "path": "dist" }
     },
     {
       "name": "PostPaste",
       "type": [[["PostPaste"]]],
       "props": [
-        { "name": "name", "optional": true, "type": [[["string"]]] },
-        { "name": "description", "optional": true, "type": [[["string"]]] },
+        {
+          "name": "name",
+          "description": "The name of the paste",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "description",
+          "description": "The description of the paste (must be less than 25 KiB)",
+          "optional": true,
+          "type": [[["string"]]]
+        },
         {
           "name": "visibility",
+          "description": "The visibility of the paste",
           "optional": true,
+          "default": "unlisted",
           "type": [[["public"]], [["unlisted"]], [["private"]]]
         },
-        { "name": "expires", "optional": true, "type": [[["string"]]] },
+        {
+          "name": "expires",
+          "description": "The expiration date of the paste (must be a UTC ISO 8601 string)",
+          "optional": true,
+          "type": [[["string"]]]
+        },
         {
           "name": "files",
+          "description": "Array of files to add to the paste (at least one file)",
           "type": [
             [
               ["Array", "<"],
@@ -224,35 +339,88 @@
           ]
         }
       ],
-      "meta": { "line": 170, "file": "index.js", "path": "dist" }
+      "meta": { "line": 182, "file": "index.js", "path": "dist" }
     },
     {
       "name": "UpdatePost",
       "type": [[["UpdatePost"]]],
       "props": [
-        { "name": "name", "optional": true, "type": [[["string"]]] },
-        { "name": "description", "type": [[["string"]]] }
+        {
+          "name": "name",
+          "description": "The new name of the post",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "description",
+          "description": "The new description of the post",
+          "type": [[["string"]]]
+        }
       ],
-      "meta": { "line": 178, "file": "index.js", "path": "dist" }
+      "meta": { "line": 190, "file": "index.js", "path": "dist" }
     },
     {
       "name": "Files",
       "type": [[["Files"]]],
       "props": [
-        { "name": "id", "type": [[["string"]]] },
-        { "name": "name", "type": [[["string"]]] },
-        { "name": "highlight_language", "type": [[["string"]], [["null"]]] }
+        {
+          "name": "id",
+          "description": "The ID of the file",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "name",
+          "description": "The name of the file",
+          "type": [[["string"]]]
+        },
+        {
+          "name": "highlight_language",
+          "description": "The syntax highlighting language used",
+          "type": [[["string"]], [["null"]]]
+        }
       ],
-      "meta": { "line": 183, "file": "index.js", "path": "dist" }
+      "meta": { "line": 195, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "PostContent",
+      "type": [[["PostContent"]]],
+      "props": [
+        {
+          "name": "format",
+          "description": "The format of the file",
+          "type": [[["text"]], [["base64"]], [["gzip"]], [["xz"]]]
+        },
+        {
+          "name": "highlight_language",
+          "description": "The syntax highlighting language to use",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "value",
+          "description": "The value of the file contents",
+          "type": [[["string"]]]
+        }
+      ],
+      "meta": { "line": 201, "file": "index.js", "path": "dist" }
     },
     {
       "name": "PostFiles",
       "type": [[["PostFiles"]]],
       "props": [
-        { "name": "name", "optional": true, "type": [[["string"]]] },
-        { "name": "content", "type": [[["PostFilescontent"]]] }
+        {
+          "name": "name",
+          "description": "The name of the file",
+          "optional": true,
+          "type": [[["string"]]]
+        },
+        {
+          "name": "content",
+          "description": "The content of the file",
+          "type": [[["PostContent"]]]
+        }
       ],
-      "meta": { "line": 189, "file": "index.js", "path": "dist" }
+      "meta": { "line": 207, "file": "index.js", "path": "dist" }
     }
   ],
   "externals": []
