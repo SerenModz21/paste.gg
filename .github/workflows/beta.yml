@@ -26,9 +26,7 @@ jobs:
       - name: Build Code
         run: yarn build
       - name: Push New Code
-        if: github.event_name == 'push'
         run: |
-          echo -e "\nCurrent ref: $GITHUB_REF"
           echo -e "\n# Initialize some useful variables"
           REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           BRANCH_OR_TAG=`awk -F/ '{print $2}' <<< $GITHUB_REF`
