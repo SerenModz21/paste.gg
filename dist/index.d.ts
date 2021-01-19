@@ -2,7 +2,7 @@
 
 declare module 'paste.gg' {
     import { PasteGGOptions, PasteOutput, PostPaste, UpdatePost } from "paste.gg/interfaces";
-    class PasteGG {
+    export default class PasteGG {
             #private;
             /** The base URL and API version used */
             readonly options: PasteGGOptions;
@@ -47,7 +47,6 @@ declare module 'paste.gg' {
                 */
             update(id: string, options: UpdatePost): Promise<PasteOutput | void>;
     }
-    export default PasteGG;
     export { PasteGG };
 }
 
