@@ -18,7 +18,9 @@ yarn add paste.gg
 
 > Get started with paste.gg
 ```ts
-import PasteGG from "paste.gg"
+const PasteGG = require("paste.gg");
+// or
+import PasteGG from "paste.gg";
 
 // If you want to be anonymous
 const pasteGG = new PasteGG()
@@ -62,8 +64,8 @@ await pasteGG.delete("idHere", "deletionKeyHere")
 // Delete with auth key if not set in constructor
 await pasteGG.delete("idHere", "authKeyHere") 
 
-// If you have set your auth key in the class constructor, you can type "auth" for the key
-await pasteGG.delete("idHere", "auth")
+// Leave blank if auth key is in the class constructor
+await pasteGG.delete("idHere")
 ```
 <br/>
 
@@ -81,4 +83,4 @@ await pasteGG.update("idHere", {
 
 Contributions are more than welcome. If you would like to add to this API, you can open a pull request as I haven't added everything on the API, only the things that will get used more often.
 
-Copyright © SerenModz21 2018 - 2020
+Copyright © SerenModz21 2018 - 2021
