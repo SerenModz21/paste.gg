@@ -4,10 +4,16 @@
   "description": "A wrapper for the paste.gg api",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "author": "Seren_Modz 21",
-  "repository": "SerenModz21/paste.gg",
-  "bugs": "https://github.com/SerenModz21/paste.gg",
   "license": "MIT",
+  "author": "Seren_Modz 21",
+  "homepage": "https://github.com/SerenModz21/paste.gg#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SerenModz21/paste.gg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SerenModz21/paste.gg/issues"
+  },
   "keywords": [
     "paste.gg",
     "api",
@@ -28,5 +34,11 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
