@@ -14,7 +14,6 @@ declare module 'paste.gg' {
                 * @param {PasteGGOptions} options Options for the paste server
                 * @class {PasteGG}
                 * @public
-                * @package PasteGG
                 */
             constructor(auth?: string, options?: PasteGGOptions);
             /**
