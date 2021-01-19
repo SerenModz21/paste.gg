@@ -10,7 +10,7 @@ jobs:
     name: Publish Beta
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Project
         uses: actions/checkout@v2
       - name: Use Node.js 12
         uses: actions/setup-node@v1
@@ -25,7 +25,8 @@ jobs:
         run: yarn --ignore-scripts --frozen-lockfile
       - name: Build Code
         run: yarn build
-      - name: Push New Code
+      - name: Push new code
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo -e "\n# Initialize some useful variables"
           REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
@@ -45,7 +46,7 @@ jobs:
           rsync -vaI package.json out/
           rsync -vaI README.md out/
           rsync -vaI LICENSE out/
-          rsync -vaI dist/**/* out/dist/
+          rsync -vaI dist/ out/dist
           echo -e "\n# Commit and push"
           cd out
           git add --all .
