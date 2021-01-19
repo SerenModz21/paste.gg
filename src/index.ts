@@ -30,7 +30,7 @@ export class PasteGG {
   }) {
     this.#auth = auth;
     this.options = options;
-    this.version = require("../package.json").version;
+    this.version = `v${require("../package.json").version}`;
     this.#url = `${this.options.baseUrl}/v${this.options.version}`;
   }
 
