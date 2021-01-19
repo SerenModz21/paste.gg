@@ -1,1 +1,259 @@
-{"meta":{"generator":"0.9.0","format":20,"date":1611071286906},"custom":{"general":{"name":"General","files":{"welcome":{"name":"Welcome","type":"md","content":"<div align=\"center\">\r\n  <br />\r\n  <p>\r\n    <a href=\"https://www.npmjs.com/package/paste.gg\"><img src=\"https://img.shields.io/npm/v/paste.gg.svg?maxAge=3600\" alt=\"NPM version\" /></a>\r\n    <a href=\"https://www.npmjs.com/package/discord.js\"><img src=\"https://img.shields.io/npm/dt/paste.gg.svg?maxAge=3600\" alt=\"NPM downloads\" /></a>\r\n    <a href=\"https://travis-ci.org/discordjs/discord.js\"><img src=\"https://travis-ci.org/SerenModz21/paste.gg.svg\" alt=\"Build status\" /></a>\r\n    <a href=\"https://david-dm.org/discordjs/discord.js\"><img src=\"https://img.shields.io/david/SerenModz21/paste.gg.svg?maxAge=3600\" alt=\"Dependencies\" /></a>\r\n  </p>\r\n  <p>\r\n    <a href=\"https://nodei.co/npm/paste.gg/\"><img src=\"https://nodei.co/npm/paste.gg.png?downloads=true&stars=true\" alt=\"NPM info\" /></a>\r\n  </p>\r\n</div>\r\n\r\n# Welcome!\r\n\r\nWelcome to the paste.gg documentation.\r\n\r\n## About\r\n\r\npaste.gg is a [Node.js](https://nodejs.org) module that allows you to easily interact with the\r\n[Paste.gg API](https://paste.gg).\r\n\r\n## Installation\r\n\r\n**Node.js 12.0.0 or newer is required.**\r\n\r\nNPM: `npm install paste.gg` or `npm i paste.gg` <br/>\r\nYarn: `yarn add paste.gg`","path":"docs/general/welcome.md"}}}},"classes":[{"name":"PasteGG","access":"public","construct":{"name":"PasteGG","description":"Create a new instance of PasteGG","params":[{"name":"auth","description":"Optional auth key","type":[[["string"]]]},{"name":"options","description":"Options for the paste server","type":[[["PasteGGOptions"]]]}]},"methods":[{"name":"headers","description":"The headers required for the request","access":"private","params":[{"name":"auth","type":[[["string"]]]},{"name":"content","type":[[["boolean"]]]}],"returns":[[["IHeader"]]],"meta":{"line":55,"file":"index.js","path":"dist"}},{"name":"get","description":"Get an existing paste.","access":"public","params":[{"name":"id","description":"The ID of the paste.","type":[[["string"]]]},{"name":"full","description":"Includes the contents of files if true.","default":false,"type":[[["boolean"]]]}],"async":true,"returns":[[["Promise","<"],["PasteOutput",">"]]],"meta":{"line":72,"file":"index.js","path":"dist"}},{"name":"post","description":"Create a new paste.","access":"public","params":[{"name":"input","description":"The information to create the paste with.","type":[[["PostPaste"]]]}],"async":true,"returns":[[["Promise","<"],["PasteOutput",">"]]],"meta":{"line":85,"file":"index.js","path":"dist"}},{"name":"delete","description":"Deletes an existing paste.","access":"public","params":[{"name":"id","description":"The ID of the paste to delete.","type":[[["string"]]]},{"name":"key","description":"Auth key or deletion key (leave blank if you have set the auth key in the constructor)","optional":true,"type":[[["string"]]]}],"async":true,"returns":[[["Promise","<("],["PasteOutput","|"],["void",")>"]]],"meta":{"line":100,"file":"index.js","path":"dist"}},{"name":"update","description":"Update an existing paste.","access":"public","params":[{"name":"id","description":"The ID for the paste to update.","type":[[["string"]]]},{"name":"options","description":"The options you wish to update.","type":[[["UpdatePost"]]]}],"async":true,"returns":[[["Promise","<("],["PasteOutput","|"],["void",")>"]]],"meta":{"line":114,"file":"index.js","path":"dist"}}],"meta":{"line":28,"file":"index.js","path":"dist"}}],"interfaces":[{"name":"PostFiles","meta":{"line":133,"file":"index.js","path":"dist"}}],"typedefs":[],"externals":[]}
+{
+  "meta": { "generator": "0.9.0", "format": 20, "date": 1611074030278 },
+  "custom": {
+    "general": {
+      "name": "General",
+      "files": {
+        "welcome": {
+          "name": "Welcome",
+          "type": "md",
+          "content": "<div align=\"center\">\r\n  <br />\r\n  <p>\r\n    <a href=\"https://www.npmjs.com/package/paste.gg\"><img src=\"https://img.shields.io/npm/v/paste.gg.svg?maxAge=3600\" alt=\"NPM version\" /></a>\r\n    <a href=\"https://www.npmjs.com/package/discord.js\"><img src=\"https://img.shields.io/npm/dt/paste.gg.svg?maxAge=3600\" alt=\"NPM downloads\" /></a>\r\n    <a href=\"https://travis-ci.org/discordjs/discord.js\"><img src=\"https://travis-ci.org/SerenModz21/paste.gg.svg\" alt=\"Build status\" /></a>\r\n    <a href=\"https://david-dm.org/discordjs/discord.js\"><img src=\"https://img.shields.io/david/SerenModz21/paste.gg.svg?maxAge=3600\" alt=\"Dependencies\" /></a>\r\n  </p>\r\n  <p>\r\n    <a href=\"https://nodei.co/npm/paste.gg/\"><img src=\"https://nodei.co/npm/paste.gg.png?downloads=true&stars=true\" alt=\"NPM info\" /></a>\r\n  </p>\r\n</div>\r\n\r\n# Welcome!\r\n\r\nWelcome to the paste.gg documentation.\r\n\r\n## About\r\n\r\npaste.gg is a [Node.js](https://nodejs.org) module that allows you to easily interact with the\r\n[Paste.gg API](https://paste.gg).\r\n\r\n## Installation\r\n\r\n**Node.js 12.0.0 or newer is required.**\r\n\r\nNPM: `npm install paste.gg` or `npm i paste.gg` <br/>\r\nYarn: `yarn add paste.gg`",
+          "path": "docs/general/welcome.md"
+        }
+      }
+    }
+  },
+  "classes": [
+    {
+      "name": "PasteGG",
+      "access": "public",
+      "construct": {
+        "name": "PasteGG",
+        "description": "Create a new instance of PasteGG",
+        "params": [
+          {
+            "name": "auth",
+            "description": "Optional auth key",
+            "type": [[["string"]]]
+          },
+          {
+            "name": "options",
+            "description": "Options for the paste server",
+            "type": [[["PasteGGOptions"]]]
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "options",
+          "description": "The options for the paste server",
+          "access": "public",
+          "readonly": true,
+          "type": [[["PasteGGOptions"]]],
+          "meta": { "line": 56, "file": "index.js", "path": "dist" }
+        },
+        {
+          "name": "version",
+          "description": "The version of the API wrapper",
+          "access": "public",
+          "readonly": true,
+          "type": [[["string"]]],
+          "meta": { "line": 63, "file": "index.js", "path": "dist" }
+        }
+      ],
+      "methods": [
+        {
+          "name": "headers",
+          "description": "The headers required for the request",
+          "access": "private",
+          "params": [
+            { "name": "auth", "type": [[["string"]]] },
+            { "name": "content", "type": [[["boolean"]]] }
+          ],
+          "returns": [[["IHeader"]]],
+          "meta": { "line": 79, "file": "index.js", "path": "dist" }
+        },
+        {
+          "name": "get",
+          "description": "Get an existing paste.",
+          "access": "public",
+          "params": [
+            {
+              "name": "id",
+              "description": "The ID of the paste.",
+              "type": [[["string"]]]
+            },
+            {
+              "name": "full",
+              "description": "Includes the contents of files if true.",
+              "default": false,
+              "type": [[["boolean"]]]
+            }
+          ],
+          "async": true,
+          "returns": [
+            [
+              ["Promise", "<"],
+              ["PasteOutput", ">"]
+            ]
+          ],
+          "meta": { "line": 96, "file": "index.js", "path": "dist" }
+        },
+        {
+          "name": "post",
+          "description": "Create a new paste.",
+          "access": "public",
+          "params": [
+            {
+              "name": "input",
+              "description": "The information to create the paste with.",
+              "type": [[["PostPaste"]]]
+            }
+          ],
+          "async": true,
+          "returns": [
+            [
+              ["Promise", "<"],
+              ["PasteOutput", ">"]
+            ]
+          ],
+          "meta": { "line": 109, "file": "index.js", "path": "dist" }
+        },
+        {
+          "name": "delete",
+          "description": "Deletes an existing paste.",
+          "access": "public",
+          "params": [
+            {
+              "name": "id",
+              "description": "The ID of the paste to delete.",
+              "type": [[["string"]]]
+            },
+            {
+              "name": "key",
+              "description": "Auth key or deletion key (leave blank if you have set the auth key in the constructor)",
+              "optional": true,
+              "type": [[["string"]]]
+            }
+          ],
+          "async": true,
+          "returns": [
+            [
+              ["Promise", "<("],
+              ["PasteOutput", "|"],
+              ["void", ")>"]
+            ]
+          ],
+          "meta": { "line": 124, "file": "index.js", "path": "dist" }
+        },
+        {
+          "name": "update",
+          "description": "Update an existing paste.",
+          "access": "public",
+          "params": [
+            {
+              "name": "id",
+              "description": "The ID for the paste to update.",
+              "type": [[["string"]]]
+            },
+            {
+              "name": "options",
+              "description": "The options you wish to update.",
+              "type": [[["UpdatePost"]]]
+            }
+          ],
+          "async": true,
+          "returns": [
+            [
+              ["Promise", "<("],
+              ["PasteOutput", "|"],
+              ["void", ")>"]
+            ]
+          ],
+          "meta": { "line": 138, "file": "index.js", "path": "dist" }
+        }
+      ],
+      "meta": { "line": 28, "file": "index.js", "path": "dist" }
+    }
+  ],
+  "interfaces": [],
+  "typedefs": [
+    {
+      "name": "IHeader",
+      "description": "The header options",
+      "type": [[["IHeader"]]],
+      "props": [
+        { "name": "Content-Type", "optional": true, "type": [[["string"]]] },
+        { "name": "Authorization", "optional": true, "type": [[["string"]]] }
+      ],
+      "meta": { "line": 152, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "PasteGGOptions",
+      "type": [[["PasteGGOptions"]]],
+      "props": [
+        { "name": "baseUrl", "type": [[["string"]]] },
+        { "name": "version", "type": [[["number"]]] }
+      ],
+      "meta": { "line": 158, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "PasteOutput",
+      "type": [[["PasteOutput"]]],
+      "props": [
+        { "name": "status", "type": [[["string"]]] },
+        {
+          "name": "result",
+          "optional": true,
+          "type": [[["PasteOutputresult"]]]
+        },
+        { "name": "error", "optional": true, "type": [[["string"]]] },
+        { "name": "message", "optional": true, "type": [[["string"]]] }
+      ],
+      "meta": { "line": 163, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "PostPaste",
+      "type": [[["PostPaste"]]],
+      "props": [
+        { "name": "name", "optional": true, "type": [[["string"]]] },
+        { "name": "description", "optional": true, "type": [[["string"]]] },
+        {
+          "name": "visibility",
+          "optional": true,
+          "type": [[["public"]], [["unlisted"]], [["private"]]]
+        },
+        { "name": "expires", "optional": true, "type": [[["string"]]] },
+        {
+          "name": "files",
+          "type": [
+            [
+              ["Array", "<"],
+              ["PostFiles", ">"]
+            ]
+          ]
+        }
+      ],
+      "meta": { "line": 170, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "UpdatePost",
+      "type": [[["UpdatePost"]]],
+      "props": [
+        { "name": "name", "optional": true, "type": [[["string"]]] },
+        { "name": "description", "type": [[["string"]]] }
+      ],
+      "meta": { "line": 178, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "Files",
+      "type": [[["Files"]]],
+      "props": [
+        { "name": "id", "type": [[["string"]]] },
+        { "name": "name", "type": [[["string"]]] },
+        { "name": "highlight_language", "type": [[["string"]], [["null"]]] }
+      ],
+      "meta": { "line": 183, "file": "index.js", "path": "dist" }
+    },
+    {
+      "name": "PostFiles",
+      "type": [[["PostFiles"]]],
+      "props": [
+        { "name": "name", "optional": true, "type": [[["string"]]] },
+        { "name": "content", "type": [[["PostFilescontent"]]] }
+      ],
+      "meta": { "line": 189, "file": "index.js", "path": "dist" }
+    }
+  ],
+  "externals": []
+}

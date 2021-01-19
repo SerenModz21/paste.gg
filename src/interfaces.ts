@@ -9,7 +9,7 @@ export type IHeader = {
   "Content-Type"?: string;
   /** Authorization for the request  */
   Authorization?: string;
-}
+};
 
 export interface PasteGGOptions {
   /** The base URL of the API */
@@ -68,7 +68,7 @@ export interface UpdatePost {
   description: string;
 }
 
-interface Files {
+export interface Files {
   /** The ID of the file */
   id: string;
   /** The name of the file */
@@ -77,7 +77,7 @@ interface Files {
   highlight_language: string | null;
 }
 
-interface PostFiles {
+export interface PostFiles {
   /** (Optional) The name of the file */
   name?: string;
   /** (Required) The content of the file */
@@ -88,5 +88,5 @@ interface PostFiles {
     highlight_language?: string;
     /** (Required) The value of the file contents */
     value: string;
-  }
+  };
 }
