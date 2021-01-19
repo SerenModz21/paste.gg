@@ -112,7 +112,7 @@ declare module 'paste.gg/interfaces' {
         /** (Required) The new description of the post */
         description: string;
     }
-    interface Files {
+    export interface Files {
         /** The ID of the file */
         id: string;
         /** The name of the file */
@@ -120,7 +120,7 @@ declare module 'paste.gg/interfaces' {
         /** The syntax highlighting language used */
         highlight_language: string | null;
     }
-    interface PostFiles {
+    export interface PostFiles {
         /** (Optional) The name of the file */
         name?: string;
         /** (Required) The content of the file */
@@ -133,6 +133,5 @@ declare module 'paste.gg/interfaces' {
             value: string;
         };
     }
-    export {};
 }
 
