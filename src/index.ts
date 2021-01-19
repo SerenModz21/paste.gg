@@ -120,5 +120,3 @@ export class PasteGG {
 }
 
 export default PasteGG
-module.exports = PasteGG
-module.exports.PasteGG = PasteGG
