@@ -21,7 +21,7 @@ class PasteGG {
    * Create a new instance of PasteGG
    * @param {string} auth Optional auth key
    * @param {PasteGGOptions} options Options for the paste server
-   * @class {PasteGG}
+   * @class PasteGG
    * @public
    */
   public constructor(auth?: string, options: PasteGGOptions = {
@@ -121,3 +121,18 @@ class PasteGG {
 
 export default PasteGG;
 export { PasteGG };
+
+/**
+ * @typedef {Object}
+ * @property {string} ["Content-Type"]
+ * @property {string} [Authorization]
+ */
+
+/**
+ * @interface PasteGGOptions
+ * @interface PasteOutput
+ * @interface PostPaste
+ * @interface UpdatePost
+ * @interface Files
+ * @interface PostFiles
+ */
