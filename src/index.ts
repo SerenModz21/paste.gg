@@ -23,7 +23,6 @@ export class PasteGG {
    * @param {PasteGGOptions} options Options for the paste server
    * @class {PasteGG}
    * @public
-   * @package PasteGG
    */
   public constructor(auth?: string, options: PasteGGOptions = {
     baseUrl: "https://api.paste.gg",
@@ -121,3 +120,5 @@ export class PasteGG {
 }
 
 export default PasteGG
+module.exports = PasteGG
+module.exports.PasteGG = PasteGG
