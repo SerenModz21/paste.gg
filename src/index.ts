@@ -148,8 +148,9 @@ class PasteGG {
  * @exports paste.gg
  */
 
-export { PasteGG }
-export default PasteGG
+export { PasteGG };
+export default PasteGG;
+module.exports = PasteGG;
 
 /**
  * The header options
