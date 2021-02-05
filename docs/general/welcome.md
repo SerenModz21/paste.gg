@@ -20,9 +20,21 @@ Welcome to the paste.gg documentation.
 paste.gg is a [Node.js](https://nodejs.org) module that allows you to easily interact with the
 [Paste.gg API](https://paste.gg).
 
+• Strongly typed
+
+• Easy to use
+
+• Well maintained
+
+• Everyone is allowed to contribute
+
 ## Installation
 
 **Node.js 12.0.0 or newer is required.**
 
 NPM: `npm install paste.gg` or `npm i paste.gg` <br/>
 Yarn: `yarn add paste.gg`
+
+## Note
+
+I am not the original creator of these docs, they are owned by [discord.js](https://github.com/discordjs) team. I decided to use them as they are open source, and I find that lots of people like how easy it is to navigate through these.
