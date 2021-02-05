@@ -150,7 +150,8 @@ class PasteGG {
 
 export { PasteGG };
 export default PasteGG;
-module.exports = PasteGG;
+module.exports = PasteGG; // JS: default import
+module.exports.PasteGG = PasteGG; // JS: deconstruct import
 
 /**
  * The header options
