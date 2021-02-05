@@ -1,22 +1,27 @@
 # paste.gg
-A wrapper for the paste.gg api. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls. <br/>
+A library for interacting with the Paste.GG API. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls. <br/>
 
-**[Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
-**[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
+### Links
 
-> Install with npm
+• **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
+• **[Library Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
+• **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
+
+### Usages
+
+#### Install with npm
 ```
 npm install paste.gg
 ```
 <br/>
 
-> Install with yarn
+#### Install with yarn
 ```
 yarn add paste.gg
 ```
 <br/>
 
-> Get started with paste.gg
+#### Get started with paste.gg
 ```ts
 const PasteGG = require("paste.gg");
 // or
@@ -30,7 +35,7 @@ const pasteGG = new PasteGG("apiKeyHere")
 ```
 <br/>
 
-> Get information about a post
+#### Get information about a post
 ```ts
 await pasteGG.get("idHere")
 
@@ -39,7 +44,7 @@ await pasteGG.get("idHere", true)
 ```
 <br/>
 
-> Post a new paste ([Click here for more options](https://github.com/ascclemens/paste/blob/master/api.md#post-pastes))
+#### Post a new paste ([Click here for more options](https://github.com/ascclemens/paste/blob/master/api.md#post-pastes))
 ```ts
 await pasteGG.post({
   name: "Paste name", // Optional
@@ -56,7 +61,7 @@ await pasteGG.post({
 ```
 <br/>
 
-> Delete a paste (auth/deletion key needed)
+#### Delete a paste (auth/deletion key needed)
 ```ts
 // Delete with deletion key
 await pasteGG.delete("idHere", "deletionKeyHere")
@@ -69,7 +74,7 @@ await pasteGG.delete("idHere")
 ```
 <br/>
 
-> Update the post
+#### Update the post
 ```ts
 await pasteGG.update("idHere", {
   name: "new name", // Optional (if you want to remove the name)

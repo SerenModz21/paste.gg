@@ -467,13 +467,13 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces.ts": {
-        "version": "96719109c3fcbc07b9a0bc12cef34281d5d93982d08635d510341e50367ece69",
-        "signature": "49352179cac147cfaabe84c3b19d3b1688f7f5f09b53fe66c83f5f6394740622",
+        "version": "b01b551a6e428807ac2d1ac8730ea1d3bc0963ea9059b4bf61e86e5bec138369",
+        "signature": "056b0efba4ddeca657ac1bd717e8671b8328269d94872da4a996284a75a9972e",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "c1a638d0e9699868bcc554d6c54c054fced7288e607e5dca82912c1f34d40eda",
-        "signature": "c93803bf4282cc716e5200c8d17ce561a8a2404b0b8b253abf093a6b100f2528",
+        "version": "5f95101d85a91241ba5848f9a8f8c9a8dd48440485adf73c75c4ea4bd97ff588",
+        "signature": "614ca5454ee1f70df3da9935967235a73508165e34548b80aab0d0de672b0873",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/detect-indent/index.d.ts": {
@@ -516,6 +516,7 @@
       "esModuleInterop": true,
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
+      "moduleResolution": 2,
       "pretty": true,
       "allowJs": true,
       "declaration": true,
@@ -709,6 +710,7 @@
       ],
       "../src/index.ts": [
         "../node_modules/@types/node-fetch/index.d.ts",
+        "../node_modules/@types/node/querystring.d.ts",
         "../src/interfaces.ts"
       ]
     },
