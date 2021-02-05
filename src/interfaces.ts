@@ -53,14 +53,6 @@ export interface Post extends Pick<Result, "name" | "description" | "visibility"
   files: FileOut[];
 }
 
-const test: Post = {
-  name: "",
-  files: [],
-  description: "",
-  expires: "",
-  visibility: "unlisted"
-}
-
 export interface Update extends Pick<Result, "name"> {
   description: string;
 }
