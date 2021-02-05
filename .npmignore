@@ -11,3 +11,4 @@ logs/
 tsconfig.json
 src/
 test/
+docs/
