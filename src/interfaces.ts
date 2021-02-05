@@ -4,93 +4,81 @@
  * Refer to the README for more information.
  */
 
+export enum Methods {
+  GET = "GET",
+  POST = "POST",
+  DELETE = "DELETE",
+  PATCH = "PATCH"
+}
+
 export type IHeader = {
-  /** The request content type */
   "Content-Type"?: string;
-  /** Authorization for the request */
   Authorization?: string;
 };
 
-export interface PasteGGOptions {
-  /** The base URL of the API */
+export interface Options {
   baseUrl: string;
-  /** The version of the API */
+  mainUrl: string;
   version: number;
 }
 
-export interface OutputResult {
-  /** The ID of the created paste */
+export interface Result {
   id: string;
-  /** The name of the created paste */
   name?: string;
-  /** The description of the created paste */
+  url?: string;
+  author?: Author;
   description?: string;
-  /** The visibility of the created paste */
   visibility?: "public" | "unlisted" | "private";
-  /** The date the paste was created */
   created_at: string;
-  /** The date the paste was last updated */
   updated_at: string;
-  /** The date when the paste expires */
   expires?: string;
-  /** The files used in the created paste */
-  files?: Files[];
-  /** The deletion key of the created paste */
+  files?: File[];
   deletion_key?: string;
 }
 
-export interface PasteOutput {
-  /** The output status which can be "success" or "error" */
+export interface Output {
   status: string;
-  /** The result data object */
-  result?: OutputResult;
-  /** The error key */
+  result?: Result;
   error?: string;
-  /** (Optional) The error message */
   message?: string;
 }
 
-export interface PostPaste {
-  /** (Optional) The name of the paste */
+export interface Author {
+  id?: string;
+  username?: string;
   name?: string;
-  /** (Optional) The description of the paste (must be less than 25 KiB) */
-  description?: string;
-  /** (Optional) The visibility of the paste (defaults to unlisted) */
-  visibility?: "public" | "unlisted" | "private";
-  /** (Optional) The expiration date of the paste (must be a UTC ISO 8601 string) */
-  expires?: string;
-  /** (Required) Array of files to add to the paste (at least one file) */
-  files: PostFiles[];
 }
 
-export interface UpdatePost {
-  /** (Optional) The new name of the post */
-  name?: string;
-  /** (Required) The new description of the post */
+export interface Post extends Pick<Result, "name" | "description" | "visibility" | "expires"> {
+  files: FileOut[];
+}
+
+const test: Post = {
+  name: "",
+  files: [],
+  description: "",
+  expires: "",
+  visibility: "unlisted"
+}
+
+export interface Update extends Pick<Result, "name"> {
   description: string;
 }
 
-export interface Files {
-  /** The ID of the file */
+export interface File {
   id: string;
-  /** The name of the file */
   name: string;
-  /** The syntax highlighting language used */
-  highlight_language: string | null;
+  highlight_language?: string;
 }
 
-export interface PostContent {
-  /** (Required) The format of the file */
+export interface FileOut {
+  name?: string;
+  content: Content;
+}
+
+export interface Content extends Pick<File, "highlight_language"> {
   format: "text" | "base64" | "gzip" | "xz";
-  /** (Optional) The syntax highlighting language to use */
-  highlight_language?: string;
-  /** (Required) The value of the file contents */
   value: string;
 }
 
-export interface PostFiles {
-  /** (Optional) The name of the file */
-  name?: string;
-  /** (Required) The content of the file */
-  content: PostContent;
-}
+
