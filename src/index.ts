@@ -6,10 +6,7 @@
 
 import fetch  from "node-fetch";
 import { stringify, ParsedUrlQueryInput as Input } from "querystring"
-import {
-  Options, IHeader, Result, Output, Content,
-  File, Post, Update, Author, Methods
-} from "./interfaces";
+import { Options, IHeader, Result, Output, Content, File, Post, Update, Author, Methods } from "./interfaces";
 
 /**
  * The main class for interacting with the Paste.gg API
@@ -29,14 +26,11 @@ class PasteGG {
    * @class PasteGG
    * @public
    */
-  public constructor(
-    auth?: string,
-    options: Options = {
-      baseUrl: "https://api.paste.gg",
-      mainUrl: "https://paste.gg",
-      version: 1,
-    }
-  ) {
+  public constructor(auth?: string, options: Options = {
+    baseUrl: "https://api.paste.gg",
+    mainUrl: "https://paste.gg",
+    version: 1
+  }) {
     /**
      * The auth key
      * @type {string}
