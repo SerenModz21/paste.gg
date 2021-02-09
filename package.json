@@ -7,10 +7,7 @@
   "license": "MIT",
   "author": "Seren_Modz 21",
   "homepage": "https://github.com/SerenModz21/paste.gg#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SerenModz21/paste.gg.git"
-  },
+  "repository": "git://github.com/SerenModz21/paste.gg.git",
   "bugs": {
     "url": "https://github.com/SerenModz21/paste.gg/issues"
   },
@@ -32,8 +29,5 @@
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   }
 }
