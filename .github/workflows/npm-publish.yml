@@ -30,7 +30,9 @@ jobs:
       - run: git config --global user.name "${GITHUB_ACTOR}"
       - run: touch .npmrc
       - run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GIT_PKG_TOKEN}}" >> .npmrc
+      - run: echo "scope=@SerenModz21" >> .npmrc
       - run: echo "@SerenModz21:registry=https://npm.pkg.github.com/" >> .npmrc
+      - run: echo "registry=https://npm.pkg.github.com/" >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GIT_PKG_TOKEN}}
