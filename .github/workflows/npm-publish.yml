@@ -24,7 +24,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: "@SerenModz21"
       - run: rm -rf node_modules/ && yarn
+      - run: git config --global user.email "${GITHUB_EMAIL}"
+      - run: git config --global user.name "${GITHUB_ACTOR}"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
