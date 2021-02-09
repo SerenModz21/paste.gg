@@ -4,20 +4,22 @@ A library for interacting with the Paste.GG API. I have created this in a short 
 ### Links
 
 • **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
-• **[Library Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
 • **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
 
 ### Usages
 
-#### Install with npm
+#### Install the stable version
 ```
 npm install paste.gg
-```
-<br/>
 
-#### Install with yarn
-```
 yarn add paste.gg
+```
+
+#### Install the beta version (git is required)
+```
+npm install SerenModz21/paste.gg#beta
+
+yarn add SerenModz21/paste.gg#beta
 ```
 <br/>
 
@@ -84,7 +86,6 @@ await pasteGG.update("idHere", {
 <br/>
 
 ---
-<br/>
 
 Contributions are more than welcome. If you would like to add to this API, you can open a pull request as I haven't added everything on the API, only the things that will get used more often.
 
