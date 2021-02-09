@@ -24,14 +24,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@${GITHUB_ACTOR}"
+          scope: "@SerenModz21"
       - name: Set up NPM authentication
-        run: echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GIT_PKG_TOKEN}}" >> ~/.npmrc
       - run: rm -rf node_modules/ && yarn
-      - run: git config --global user.email "${GITHUB_EMAIL}"
-      - run: git config --global user.name "${GITHUB_ACTOR}"
+      - run: git config --global user.email "${{secrets.EMAIL}}"
+      - run: git config --global user.name "SerenModz21"
       - run: npm publish
         env:
-          GITHUB_ACTOR: SerenModz21
-          GITHUB_EMAIL: ${{secrets.EMAIL}}
           NODE_AUTH_TOKEN: ${{secrets.GIT_PKG_TOKEN}}
