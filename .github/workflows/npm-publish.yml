@@ -24,13 +24,14 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@SerenModz21"
-      - uses: jgierer12/npm-auth-gpr@v1
-        with:
-          token: ${{secrets.GIT_PKG_TOKEN}}
+          scope: "@${GITHUB_ACTOR}"
+      - name: Set up NPM authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
       - run: rm -rf node_modules/ && yarn
       - run: git config --global user.email "${GITHUB_EMAIL}"
       - run: git config --global user.name "${GITHUB_ACTOR}"
       - run: npm publish
         env:
+          GITHUB_ACTOR: SerenModz21
+          GITHUB_EMAIL: ${{secrets.EMAIL}}
           NODE_AUTH_TOKEN: ${{secrets.GIT_PKG_TOKEN}}
