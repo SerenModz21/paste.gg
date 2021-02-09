@@ -1,8 +1,6 @@
 import { Options, Output, Post, Update } from "./interfaces";
 /**
  * The main class for interacting with the Paste.gg API
- * @module paste.gg
- * @class PasteGG
  */
 declare class PasteGG {
     #private;
@@ -22,7 +20,6 @@ declare class PasteGG {
      * @param {string} path
      * @param {object} body
      * @param {string} key
-     * @template T
      * @returns {Promise<T>}
      * @private
      */
@@ -59,9 +56,6 @@ declare class PasteGG {
      */
     update(id: string, options: Update): Promise<Output | void>;
 }
-/**
- * @exports paste.gg
- */
 export { PasteGG };
 export default PasteGG;
 /**
