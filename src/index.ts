@@ -4,14 +4,23 @@
  * Refer to the README for more information.
  */
 
-import fetch  from "node-fetch";
-import { stringify, ParsedUrlQueryInput as Input } from "querystring"
-import { Options, IHeader, Result, Output, Content, File, Post, Update, Author, Methods } from "./interfaces";
+import fetch from "node-fetch";
+import { ParsedUrlQueryInput as Input, stringify } from "querystring";
+import {
+  Author,
+  Content,
+  File,
+  IHeader,
+  Methods,
+  Options,
+  Output,
+  Post,
+  Result,
+  Update,
+} from "./interfaces";
 
 /**
  * The main class for interacting with the Paste.gg API
- * @module paste.gg
- * @class PasteGG
  */
 class PasteGG {
   readonly #auth: string;
@@ -26,11 +35,14 @@ class PasteGG {
    * @class PasteGG
    * @public
    */
-  public constructor(auth?: string, options: Options = {
-    baseUrl: "https://api.paste.gg",
-    mainUrl: "https://paste.gg",
-    version: 1
-  }) {
+  public constructor(
+    auth?: string,
+    options: Options = {
+      baseUrl: "https://api.paste.gg",
+      mainUrl: "https://paste.gg",
+      version: 1,
+    }
+  ) {
     /**
      * The auth key
      * @type {string}
@@ -67,11 +79,15 @@ class PasteGG {
    * @param {string} path
    * @param {object} body
    * @param {string} key
-   * @template T
    * @returns {Promise<T>}
    * @private
    */
-  private async _request<T>(method: keyof typeof Methods, path: string, body?: object, key?: string): Promise<T> {
+  private async _request<T>(
+    method: keyof typeof Methods,
+    path: string,
+    body?: object,
+    key?: string
+  ): Promise<T> {
     const headers: IHeader = {};
     if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
     if (key?.length) headers.Authorization = `Key ${key}`;
@@ -83,12 +99,11 @@ class PasteGG {
     const response = await fetch(urlPath, {
       method,
       headers,
-      body: body && method !== "GET" ? JSON.stringify(body) : null
-    })
+      body: body && method !== "GET" ? JSON.stringify(body) : null,
+    });
 
-    return response.json()
+    return response.json();
   }
-
 
   /**
    * Get an existing paste.
@@ -98,7 +113,10 @@ class PasteGG {
    * @public
    */
   public async get(id: string, full: boolean = false): Promise<Output> {
-    return this._request<Output>(Methods.GET, `/pastes/${id}`, { full })
+    if (!id?.length)
+      throw new Error("A paste ID is required to use PasteGG#get()");
+
+    return this._request<Output>(Methods.GET, `/pastes/${id}`, { full });
   }
 
   /**
@@ -108,9 +126,12 @@ class PasteGG {
    * @public
    */
   public async post(input: Post): Promise<Output> {
-    const res = await this._request<Output>(Methods.POST, "/pastes", input)
-    if (res.result) res.result.url = `${this.options.mainUrl}/${res.result.id}`
-    return res
+    if (!input)
+      throw new Error("An input object is required to use PasteGG#post()");
+
+    const res = await this._request<Output>(Methods.POST, "/pastes", input);
+    if (res.result) res.result.url = `${this.options.mainUrl}/${res.result.id}`;
+    return res;
   }
 
   /**
@@ -122,10 +143,16 @@ class PasteGG {
    */
   public async delete(id: string, key?: string): Promise<Output | void> {
     if (!this.#auth?.length && !key?.length)
-      throw new Error("An auth key or deletion key is needed for this endpoint!")
+      throw new Error(
+        "An auth key or deletion key is needed to use PasteGG#delete()"
+      );
 
-    const res = await this._request<Output>(Methods.DELETE, `/pastes/${id}`, null, key)
-    return res ?? { status: "success" }
+    return await this._request<Output>(
+      Methods.DELETE,
+      `/pastes/${id}`,
+      null,
+      key
+    );
   }
 
   /**
@@ -137,16 +164,12 @@ class PasteGG {
    */
   public async update(id: string, options: Update): Promise<Output | void> {
     if (!this.#auth?.length)
-      throw new Error("An auth key is required for this endpoint!");
+      throw new Error("An auth key is required to use PasteGG#update()");
 
     if (!options.name) options.name = null;
-    return this._request<Output>(Methods.PATCH, `/pastes/${id}`, options)
+    return this._request<Output>(Methods.PATCH, `/pastes/${id}`, options);
   }
 }
-
-/**
- * @exports paste.gg
- */
 
 export { PasteGG };
 export default PasteGG;
