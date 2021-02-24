@@ -56,7 +56,7 @@ await pasteGG.post({
     name: "file.txt", // Optional
     content: {
       format: "text",
-      value: "This is where the file content wil lgo"
+      value: "This is where the file content will go"
     }
   }]
 })
