@@ -19,6 +19,12 @@ import {
   Update,
 } from "./interfaces";
 
+const defaultOptions = <Options>{
+  baseUrl: "https://api.paste.gg",
+  mainUrl: "https://paste.gg",
+  version: 1,
+};
+
 /**
  * The main class for interacting with the Paste.gg API
  */
@@ -35,14 +41,7 @@ class PasteGG {
    * @class PasteGG
    * @public
    */
-  public constructor(
-    auth?: string,
-    options: Options = {
-      baseUrl: "https://api.paste.gg",
-      mainUrl: "https://paste.gg",
-      version: 1,
-    }
-  ) {
+  public constructor(auth?: string, options: Options = defaultOptions) {
     /**
      * The auth key
      * @type {string}
@@ -56,7 +55,7 @@ class PasteGG {
      * @public
      * @readonly
      */
-    this.options = options;
+    this.options = Object.assign<Options, Options>(defaultOptions, options);
     /**
      * The version of the API wrapper
      * @type {string}
