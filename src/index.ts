@@ -4,7 +4,7 @@
  * Refer to the README for more information.
  */
 
-import fetch from "node-fetch";
+import req from "petitio";
 import { ParsedUrlQueryInput as Input, stringify } from "querystring";
 import {
   Author,
@@ -95,13 +95,7 @@ class PasteGG {
     let urlPath = `${this.#url}${path}`;
     if (body && method === "GET") urlPath += `?${stringify(<Input>body)}`;
 
-    const response = await fetch(urlPath, {
-      method,
-      headers,
-      body: body && method !== "GET" ? JSON.stringify(body) : null,
-    });
-
-    return response.json();
+    return req(urlPath, method).header(headers).body(body).json<T>();
   }
 
   /**
