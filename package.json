@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A wrapper for the paste.gg api",
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./typings/index.d.ts",
   "license": "MIT",
   "author": "Seren_Modz 21",
   "homepage": "https://github.com/SerenModz21/paste.gg#readme",

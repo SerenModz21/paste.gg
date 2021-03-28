@@ -21,7 +21,9 @@
     "moduleResolution": "Node",
     "pretty": true,
     "allowJs": true,
-    "declaration": true
+    "declaration": true,
+    "declarationDir": "./typings",
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
