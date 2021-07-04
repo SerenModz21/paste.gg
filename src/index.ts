@@ -4,20 +4,9 @@
  * Refer to the README for more information.
  */
 
-import req from "petitio";
+import fetch from "node-fetch";
 import { ParsedUrlQueryInput as Input, stringify } from "querystring";
-import {
-  Author,
-  Content,
-  File,
-  IHeader,
-  Methods,
-  Options,
-  Output,
-  Post,
-  Result,
-  Update,
-} from "./interfaces";
+import { Author, Content, File, IHeader, Methods, Options, Output, Post, Result, Update } from "./interfaces";
 
 const defaultOptions = <Options>{
   baseUrl: "https://api.paste.gg",
@@ -41,7 +30,7 @@ class PasteGG {
    * @class PasteGG
    * @public
    */
-  public constructor(auth?: string, options: Options = defaultOptions) {
+  constructor(auth?: string, options: Options = defaultOptions) {
     /**
      * The auth key
      * @type {string}
@@ -85,7 +74,7 @@ class PasteGG {
     method: keyof typeof Methods,
     path: string,
     body?: object,
-    key?: string
+    key?: string,
   ): Promise<T> {
     const headers: IHeader = {};
     if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
@@ -95,7 +84,11 @@ class PasteGG {
     let urlPath = `${this.#url}${path}`;
     if (body && method === "GET") urlPath += `?${stringify(<Input>body)}`;
 
-    return req(urlPath, method).header(headers).body(body).json<T>();
+    const res = await fetch(urlPath, {
+      method, headers, body: body && method !== "GET" ? JSON.stringify(body) : null,
+    })
+
+    return res.json()
   }
 
   /**
@@ -105,9 +98,10 @@ class PasteGG {
    * @returns {Promise<Output>}
    * @public
    */
-  public async get(id: string, full: boolean = false): Promise<Output> {
-    if (!id?.length)
+  async get(id: string, full: boolean = false): Promise<Output> {
+    if (!id?.length) {
       throw new Error("A paste ID is required to use PasteGG#get()");
+    }
 
     return this._request<Output>(Methods.GET, `/pastes/${id}`, { full });
   }
@@ -118,9 +112,10 @@ class PasteGG {
    * @returns {Promise<Output>}
    * @public
    */
-  public async post(input: Post): Promise<Output> {
-    if (!input)
+  async post(input: Post): Promise<Output> {
+    if (!input) {
       throw new Error("An input object is required to use PasteGG#post()");
+    }
 
     const res = await this._request<Output>(Methods.POST, "/pastes", input);
     if (res.result) res.result.url = `${this.options.mainUrl}/${res.result.id}`;
@@ -137,14 +132,14 @@ class PasteGG {
   public async delete(id: string, key?: string): Promise<Output | void> {
     if (!this.#auth?.length && !key?.length)
       throw new Error(
-        "An auth key or deletion key is needed to use PasteGG#delete()"
+        "An auth key or deletion key is needed to use PasteGG#delete()",
       );
 
-    return await this._request<Output>(
+    return this._request<Output>(
       Methods.DELETE,
       `/pastes/${id}`,
       null,
-      key
+      key,
     );
   }
 
@@ -178,9 +173,9 @@ module.exports.PasteGG = PasteGG; // JS: deconstruct import
 
 /**
  * @typedef {Options} Options
- * @property {string} baseUrl The base URL of the API
- * @property {string} mainUrl The URL of the main website
- * @property {number} version The version of the API
+ * @property {string} [baseUrl=https://api.paste.gg] The base URL of the API
+ * @property {string} [mainUrl=https://paste.gg] The URL of the main website
+ * @property {number} [version=1] The version of the API
  */
 
 /**
