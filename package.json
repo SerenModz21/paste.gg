@@ -26,9 +26,7 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   },
-  "dependencies": {
-    "petitio": "^1.1.0"
-  },
+  "dependencies": {},
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.0.0"
