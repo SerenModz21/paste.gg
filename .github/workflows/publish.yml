@@ -43,6 +43,9 @@ jobs:
   publish-gpr:
     name: Publish to GitHub
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
