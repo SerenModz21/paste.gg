@@ -21,7 +21,7 @@ jobs:
       - name: Format Code
         uses: creyD/prettier_action@v3.3
         with:
-          prettier_options: "--write **/*"
+          prettier_options: "--write **/* --ignore-unknown"
           commit_message: "🎨 Format the code"
           same_commit: false
         env:
