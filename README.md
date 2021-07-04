@@ -8,6 +8,7 @@
     A library for interacting with the Paste.GG API. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls. <br/>
   </p>
 </div>
+
 ### Links
 
 • **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
