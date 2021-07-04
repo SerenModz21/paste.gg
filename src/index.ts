@@ -29,6 +29,12 @@ class PasteGG {
    * @param {Options} options Options for the paste server
    * @class PasteGG
    * @public
+   * @example
+   * // If you want to be anonymous
+   * const pasteGG = new PasteGG()
+   *
+   * // If you want to use an api key
+   * const pasteGG = new PasteGG("apiKeyHere")
    */
   constructor(auth?: string, options: Options = defaultOptions) {
     /**
@@ -93,10 +99,17 @@ class PasteGG {
 
   /**
    * Get an existing paste.
+   * @see https://github.com/ascclemens/paste/blob/master/api.md#get-pastesid
    * @param {string} id The ID of the paste.
    * @param {boolean} full Includes the contents of files if true.
    * @returns {Promise<Output>}
    * @public
+   * @example
+   * // if you would like to exclude file contents
+   * await pasteGG.get("idHere")
+   *
+   * // If you would like to include file contents
+   * await pasteGG.get("idHere", true)
    */
   async get(id: string, full: boolean = false): Promise<Output> {
     if (!id?.length) {
@@ -108,9 +121,23 @@ class PasteGG {
 
   /**
    * Create a new paste.
+   * @see https://github.com/ascclemens/paste/blob/master/api.md#post-pastes
    * @param {Post} input The information to create the paste with.
    * @returns {Promise<Output>}
    * @public
+   * @example
+   * await pasteGG.post({
+   *   name: "Paste name", // Optional
+   *   description: "Paste description", // Optional
+   *   expires: "2020-12-21T02:25:56.428Z", // Optional (must be a UTC ISO 8601 string)
+   *   files: [{
+   *     name: "file.txt", // Optional
+   *     content: {
+   *       format: "text",
+   *       value: "This is where the file content will go"
+   *     }
+   *   }]
+   * })
    */
   async post(input: Post): Promise<Output> {
     if (!input) {
@@ -124,12 +151,22 @@ class PasteGG {
 
   /**
    * Deletes an existing paste.
+   * @see https://github.com/ascclemens/paste/blob/master/api.md#delete-pastesid
    * @param {string} id The ID of the paste to delete.
    * @param {string} [key] Auth key or deletion key (leave blank if you have set the auth key in the constructor)
    * @returns {Promise<Output | void>}
    * @public
+   * @example
+   * // Delete with deletion key
+   * await pasteGG.delete("idHere", "deletionKeyHere")
+   *
+   * // Delete with auth key if not set in constructor
+   * await pasteGG.delete("idHere", "authKeyHere")
+   *
+   * // Leave blank if auth key is in the class constructor
+   * await pasteGG.delete("idHere")
    */
-  public async delete(id: string, key?: string): Promise<Output | void> {
+  async delete(id: string, key?: string): Promise<Output | void> {
     if (!this.#auth?.length && !key?.length)
       throw new Error(
         "An auth key or deletion key is needed to use PasteGG#delete()",
@@ -145,12 +182,18 @@ class PasteGG {
 
   /**
    * Update an existing paste.
+   * @see https://github.com/ascclemens/paste/blob/master/api.md#patch-pastesid
    * @param {string} id The ID for the paste to update.
    * @param {Update} options The options you wish to update.
    * @returns {Promise<Output | void>}
    * @public
+   * @example
+   * await pasteGG.update("idHere", {
+   *   name: "new name", // Optional (if you want to remove the name)
+   *   description: "new description"
+   * })
    */
-  public async update(id: string, options: Update): Promise<Output | void> {
+  async update(id: string, options: Update): Promise<Output | void> {
     if (!this.#auth?.length)
       throw new Error("An auth key is required to use PasteGG#update()");
 
