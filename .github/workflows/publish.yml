@@ -41,6 +41,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
+    needs: build
     name: Publish to GitHub
     runs-on: ubuntu-latest
     permissions:
