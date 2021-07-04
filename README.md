@@ -4,16 +4,19 @@
   <a href="https://www.npmjs.com/package/paste.gg"><img src="https://img.shields.io/npm/dt/paste.gg.svg?maxAge=3600" alt="NPM downloads" /></a>
   <a href="https://github.com/SerenModz21/paste.gg/actions"><img src="https://github.com/SerenModz21/paste.gg/actions/workflows/codeql-analysis.yml/badge.svg" alt="Build status" /></a>
   <a href="https://github.com/SerenModz21/paste.gg"><img src="https://img.shields.io/github/languages/code-size/SerenModz21/paste.gg" alt="GitHub code size"></a>
-  <p style="max-width: 800px">
-    A library for interacting with the Paste.GG API. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls. <br/>
+  <br />
+  <p style="max-width: 600px">
+    A library for interacting with the Paste.GG API. I have created this in a short amount of time and will expect more updates in the future. The main purpose of this is to help users from having to create API calls.
   </p>
 </div>
+
 
 ### Links
 
 • **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
 • **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
 • **[NPM](https://www.npmjs.com/package/paste.gg)** <br/>
+
 
 ### Usages
 
@@ -93,7 +96,7 @@ await pasteGG.update("idHere", {
   description: "new description"
 })
 ```
-<br/>
+<br />
 
 ---
 
