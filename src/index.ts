@@ -6,7 +6,18 @@
 
 import fetch from "node-fetch";
 import { ParsedUrlQueryInput as Input, stringify } from "querystring";
-import { Author, Content, File, IHeader, Methods, Options, Output, Post, Result, Update } from "./interfaces";
+import {
+  Author,
+  Content,
+  File,
+  IHeader,
+  Methods,
+  Options,
+  Output,
+  Post,
+  Result,
+  Update,
+} from "./interfaces";
 
 const defaultOptions = <Options>{
   baseUrl: "https://api.paste.gg",
@@ -80,7 +91,7 @@ class PasteGG {
     method: keyof typeof Methods,
     path: string,
     body?: object,
-    key?: string,
+    key?: string
   ): Promise<T> {
     const headers: IHeader = {};
     if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
@@ -91,10 +102,12 @@ class PasteGG {
     if (body && method === "GET") urlPath += `?${stringify(<Input>body)}`;
 
     const res = await fetch(urlPath, {
-      method, headers, body: body && method !== "GET" ? JSON.stringify(body) : null,
-    })
+      method,
+      headers,
+      body: body && method !== "GET" ? JSON.stringify(body) : null,
+    });
 
-    return res.json()
+    return res.json();
   }
 
   /**
@@ -169,15 +182,10 @@ class PasteGG {
   async delete(id: string, key?: string): Promise<Output | void> {
     if (!this.#auth?.length && !key?.length)
       throw new Error(
-        "An auth key or deletion key is needed to use PasteGG#delete()",
+        "An auth key or deletion key is needed to use PasteGG#delete()"
       );
 
-    return this._request<Output>(
-      Methods.DELETE,
-      `/pastes/${id}`,
-      null,
-      key,
-    );
+    return this._request<Output>(Methods.DELETE, `/pastes/${id}`, null, key);
   }
 
   /**

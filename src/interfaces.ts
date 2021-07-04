@@ -8,7 +8,7 @@ export enum Methods {
   GET = "GET",
   POST = "POST",
   DELETE = "DELETE",
-  PATCH = "PATCH"
+  PATCH = "PATCH",
 }
 
 export type IHeader = {
@@ -49,7 +49,8 @@ export interface Author {
   name?: string;
 }
 
-export interface Post extends Pick<Result, "name" | "description" | "visibility" | "expires"> {
+export interface Post
+  extends Pick<Result, "name" | "description" | "visibility" | "expires"> {
   files: FileOut[];
 }
 
@@ -72,5 +73,3 @@ export interface Content extends Pick<File, "highlight_language"> {
   format: "text" | "base64" | "gzip" | "xz";
   value: string;
 }
-
-
