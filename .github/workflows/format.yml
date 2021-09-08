@@ -19,7 +19,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --ignore-scripts --frozen-lockfile
       - name: Format Code
-        uses: creyD/prettier_action@v3.3
+        uses: creyD/prettier_action@v4.0
         with:
           prettier_options: "--write **/* --ignore-unknown"
           commit_message: "🎨 Format the code"
