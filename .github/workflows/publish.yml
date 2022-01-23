@@ -37,7 +37,7 @@ jobs:
       - name: Compile TypeScript
         run: yarn build
       - name: Publish to Registry
-        run: yarn publish --access public
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -45,9 +45,9 @@ jobs:
     needs: build
     name: Publish to GitHub
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+    #permissions:
+    #  contents: read
+    #  packages: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -61,6 +61,6 @@ jobs:
       - name: Compile TypeScript
         run: yarn build
       - name: Publish to Registry
-        run: yarn publish --access public
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
