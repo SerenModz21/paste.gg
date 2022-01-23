@@ -1,6 +1,6 @@
 {
   "name": "paste.gg",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An easy-to-use library for interacting with the Paste.GG API. Contains examples, strong JSDocs, TypeScript types, and support for Node.js 12+. Works in both JavaScript and TypeScript.",
   "main": "./dist/index.js",
   "typings": "./typings/index.d.ts",
