@@ -1,9 +1,3 @@
-/*
- * Copyright © SerenModz21 2018 - 2021 All Rights Reserved.
- * Unauthorized distribution of any code within this project may result in consequences.
- * Refer to the README for more information.
- */
-
 import fetch from "node-fetch";
 import { ParsedUrlQueryInput as Input, stringify } from "querystring";
 import {
