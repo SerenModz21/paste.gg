@@ -22,7 +22,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "node-fetch": "2.6.7"
+    "node-fetch": "2.6.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
