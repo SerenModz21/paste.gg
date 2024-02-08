@@ -33,5 +33,6 @@
   "engines": {
     "node": ">=v12.22.12",
     "yarn": ">=1.22.19"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }
