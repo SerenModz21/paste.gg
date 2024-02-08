@@ -12,17 +12,17 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
-      - name: Use Node.js 12
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 20
       - name: Restore CI Cache
         uses: actions/cache@v4.0.0
         with:
           path: node_modules
-          key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-20-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
-        run: yarn --ignore-scripts --frozen-lockfile
+        run: yarn install --immutable
       - name: Build Code
         run: yarn build
       - name: Push new code
@@ -53,9 +53,9 @@ jobs:
           git add --all .
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_EMAIL}"
-          git commit -m ":package: build: tsc build for ${GITHUB_SHA}" || true
+          git commit -m "build: tsc build for ${GITHUB_SHA}" || true
           git push origin $TARGET_BRANCH
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: SerenModz21
-          GITHUB_EMAIL: ${{ secrets.EMAIL }}
+          GITHUB_ACTOR: github-actions[bot]
+          GITHUB_EMAIL: github-actions[bot]@users.noreply.github.com
