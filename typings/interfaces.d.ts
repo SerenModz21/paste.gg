@@ -4,7 +4,7 @@ export declare enum Methods {
     DELETE = "DELETE",
     PATCH = "PATCH"
 }
-export declare type IHeader = {
+export type IHeader = {
     "Content-Type"?: string;
     Authorization?: string;
 };

@@ -1,4 +1,4 @@
-import { Options, Output, Post, Update } from "./interfaces";
+import { type Options, type Output, type Post, type Update } from "./interfaces";
 /**
  * The main class for interacting with the Paste.gg API
  */
