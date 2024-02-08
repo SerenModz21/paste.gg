@@ -1,15 +1,11 @@
-import { ParsedUrlQueryInput as Input, stringify } from "querystring";
+import { stringify, type ParsedUrlQueryInput } from "node:querystring";
 import {
-    Author,
-    Content,
-    File,
-    IHeader,
     Methods,
-    Options,
-    Output,
-    Post,
-    Result,
-    Update,
+    type IHeader,
+    type Options,
+    type Output,
+    type Post,
+    type Update,
 } from "./interfaces";
 
 const defaultOptions = <Options>{
@@ -92,7 +88,7 @@ class PasteGG {
         if (method !== "GET") headers["Content-Type"] = "application/json";
 
         let urlPath = `${this.#url}${path}`;
-        if (body && method === "GET") urlPath += `?${stringify(<Input>body)}`;
+        if (body && method === "GET") urlPath += `?${stringify(body as ParsedUrlQueryInput)}`;
 
         const res = await fetch(urlPath, {
             method,
