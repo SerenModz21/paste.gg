@@ -1,4 +1,6 @@
-import { stringify } from 'node:querystring';
+'use strict';
+
+var querystring = require('querystring');
 
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
@@ -67,7 +69,7 @@ var _PasteGG = class _PasteGG {
       headers["Content-Type"] = "application/json";
     let urlPath = `${__privateGet(this, _url)}${path}`;
     if (body && method === "GET")
-      urlPath += `?${stringify(body)}`;
+      urlPath += `?${querystring.stringify(body)}`;
     const res = await fetch(urlPath, {
       method,
       headers,
@@ -188,6 +190,6 @@ _url = new WeakMap();
 __name(_PasteGG, "PasteGG");
 var PasteGG = _PasteGG;
 
-export { PasteGG as default };
+module.exports = PasteGG;
 //# sourceMappingURL=out.js.map
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.cjs.map
