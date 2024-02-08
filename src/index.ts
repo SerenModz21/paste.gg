@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { ParsedUrlQueryInput as Input, stringify } from "querystring";
 import {
     Author,
