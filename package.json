@@ -2,10 +2,22 @@
     "name": "paste.gg",
     "version": "1.0.5",
     "description": "An easy-to-use library for interacting with the Paste.GG API. Contains examples, strong JSDocs, TypeScript types, and support for Node.js 12+. Works in both JavaScript and TypeScript.",
-    "main": "./dist/index.js",
-    "typings": "./typings/index.d.ts",
     "license": "MIT",
     "author": "Seren_Modz 21",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.cts",
+    "exports": {
+        "import": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "require": {
+            "types": "./dist/index.d.cts",
+            "default": "./dist/index.cjs"
+        }
+    },
     "homepage": "https://github.com/SerenModz21/paste.gg#readme",
     "repository": "git://github.com/SerenModz21/paste.gg.git",
     "bugs": {
@@ -16,19 +28,28 @@
         "api",
         "wrapper"
     ],
+    "files": [
+        "dist/",
+        "!dist/.tsbuildinfo"
+    ],
     "scripts": {
-        "build": "rimraf ./dist && tsc",
-        "test": "ts-node test/index.ts",
+        "build": "rimraf ./dist && tsup",
+        "test": "node test/index.mjs",
         "prepublishOnly": "yarn build"
     },
     "devDependencies": {
         "@types/node": "^20.11.17",
+        "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
+        "tsup": "^8.0.1",
         "typescript": "^5.3.3"
     },
     "engines": {
         "node": ">=v18"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "packageManager": "yarn@4.1.0"
 }

@@ -30,12 +30,11 @@ export interface Result {
     deletion_key?: string;
 }
 
-export interface Output {
-    status: string;
-    result?: Result;
-    error?: string;
-    message?: string;
-}
+export type Output<T = Result> =
+    | { status: "success"; result: T }
+    | { status: "error"; error: string; message: string };
+
+export type ResultOutput = Output<Result>;
 
 export interface Author {
     id?: string;

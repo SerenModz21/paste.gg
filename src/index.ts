@@ -6,18 +6,20 @@ import {
     type Output,
     type Post,
     type Update,
-} from "./interfaces";
+    type Result,
+    type ResultOutput
+} from "./interfaces.js";
 
-const defaultOptions = <Options>{
+const defaultOptions = {
     baseUrl: "https://api.paste.gg",
     mainUrl: "https://paste.gg",
     version: 1,
-};
+} satisfies Options;
 
 /**
  * The main class for interacting with the Paste.gg API
  */
-class PasteGG {
+export default class PasteGG {
     readonly #auth: string;
     readonly #url: string;
     readonly options: Options;
@@ -57,7 +59,7 @@ class PasteGG {
          * @public
          * @readonly
          */
-        this.version = `v${require("../package.json").version}`;
+        this.version = "v[VI]{{inject}}[/VI]";
         /**
          * The full URL for the API
          * @type {string}
@@ -73,15 +75,15 @@ class PasteGG {
      * @param {string} path
      * @param {object} body
      * @param {string} key
-     * @returns {Promise<T>}
+     * @returns {Promise<Output<T>>}
      * @private
      */
-    private async _request<T>(
+    private async _request<T = Result>(
         method: keyof typeof Methods,
         path: string,
         body?: object,
         key?: string,
-    ): Promise<T> {
+    ): Promise<Output<T>> {
         const headers: IHeader = {};
         if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
         if (key?.length) headers.Authorization = `Key ${key}`;
@@ -96,7 +98,15 @@ class PasteGG {
             body: body && method !== "GET" ? JSON.stringify(body) : null,
         });
 
-        return res.json();
+        try {
+            return await res.json() as Output<T>;
+        } catch (e) {
+            if (e instanceof Error && e.message === "Unexpected end of JSON input") {
+                return { status: "success", result: null };
+            }
+
+            return { status: "error", error: e.name, message: e.message };
+        }
     }
 
     /**
@@ -104,7 +114,7 @@ class PasteGG {
      * @see https://github.com/ascclemens/paste/blob/master/api.md#get-pastesid
      * @param {string} id The ID of the paste.
      * @param {boolean} full Includes the contents of files if true.
-     * @returns {Promise<Output>}
+     * @returns {Promise<ResultOutput>}
      * @public
      * @example
      * // if you would like to exclude file contents
@@ -118,14 +128,14 @@ class PasteGG {
             throw new Error("A paste ID is required to use PasteGG#get()");
         }
 
-        return this._request<Output>(Methods.GET, `/pastes/${id}`, { full });
+        return this._request(Methods.GET, `/pastes/${id}`, { full });
     }
 
     /**
      * Create a new paste.
      * @see https://github.com/ascclemens/paste/blob/master/api.md#post-pastes
      * @param {Post} input The information to create the paste with.
-     * @returns {Promise<Output>}
+     * @returns {Promise<ResultOutput>}
      * @public
      * @example
      * await pasteGG.post({
@@ -141,15 +151,15 @@ class PasteGG {
      *   }]
      * })
      */
-    async post(input: Post): Promise<Output> {
+    async post(input: Post): Promise<ResultOutput> {
         if (!input) {
             throw new Error(
                 "An input object is required to use PasteGG#post()",
             );
         }
 
-        const res = await this._request<Output>(Methods.POST, "/pastes", input);
-        if (res.result)
+        const res = await this._request(Methods.POST, "/pastes", input);
+        if (res.status === "success")
             res.result.url = `${this.options.mainUrl}/${res.result.id}`;
         return res;
     }
@@ -159,7 +169,7 @@ class PasteGG {
      * @see https://github.com/ascclemens/paste/blob/master/api.md#delete-pastesid
      * @param {string} id The ID of the paste to delete.
      * @param {string} [key] Auth key or deletion key (leave blank if you have set the auth key in the constructor)
-     * @returns {Promise<Output | void>}
+     * @returns {Promise<Output<null>>}
      * @public
      * @example
      * // Delete with deletion key
@@ -171,13 +181,13 @@ class PasteGG {
      * // Leave blank if auth key is in the class constructor
      * await pasteGG.delete("idHere")
      */
-    async delete(id: string, key?: string): Promise<Output | void> {
+    async delete(id: string, key?: string): Promise<Output<null>> {
         if (!this.#auth?.length && !key?.length)
             throw new Error(
                 "An auth key or deletion key is needed to use PasteGG#delete()",
             );
 
-        return this._request<Output>(
+        return this._request(
             Methods.DELETE,
             `/pastes/${id}`,
             null,
@@ -190,7 +200,7 @@ class PasteGG {
      * @see https://github.com/ascclemens/paste/blob/master/api.md#patch-pastesid
      * @param {string} id The ID for the paste to update.
      * @param {Update} options The options you wish to update.
-     * @returns {Promise<Output | void>}
+     * @returns {Promise<Output<null>>}
      * @public
      * @example
      * await pasteGG.update("idHere", {
@@ -198,19 +208,14 @@ class PasteGG {
      *   description: "new description"
      * })
      */
-    async update(id: string, options: Update): Promise<Output | void> {
+    async update(id: string, options: Update): Promise<Output<null>> {
         if (!this.#auth?.length)
             throw new Error("An auth key is required to use PasteGG#update()");
 
         if (!options.name) options.name = null;
-        return this._request<Output>(Methods.PATCH, `/pastes/${id}`, options);
+        return this._request(Methods.PATCH, `/pastes/${id}`, options);
     }
 }
-
-export { PasteGG };
-export default PasteGG;
-module.exports = PasteGG; // JS: default import
-module.exports.PasteGG = PasteGG; // JS: deconstruct import
 
 /**
  * The header options
@@ -243,7 +248,7 @@ module.exports.PasteGG = PasteGG; // JS: deconstruct import
 
 /**
  * @typedef {Output} Output
- * @property {string} status The output status
+ * @property {"success" | "error"} status The output status
  * @property {Result} [result] The result data object
  * @property {string} [error] The error key
  * @property {string} [message] The error message
