@@ -182,6 +182,7 @@ __metadata:
     "@types/node": "npm:^17.0.21"
     "@types/node-fetch": "npm:^2.6.2"
     node-fetch: "npm:2.7.0"
+    prettier: "npm:^3.2.5"
     rimraf: "npm:^3.0.2"
     typescript: "npm:^4.7.4"
   languageName: unknown
@@ -191,6 +192,15 @@ __metadata:
   version: 1.0.1
   resolution: "path-is-absolute@npm:1.0.1"
   checksum: 10/060840f92cf8effa293bcc1bea81281bd7d363731d214cbe5c227df207c34cd727430f70c6037b5159c8a870b9157cba65e775446b0ab06fd5ecc7e54615a3b8
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/d509f9da0b70e8cacc561a1911c0d99ec75117faed27b95cc8534cb2349667dee6351b0ca83fa9d5703f14127faa52b798de40f5705f02d843da133fc3aa416a
   languageName: node
   linkType: hard
 

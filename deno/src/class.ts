@@ -1,194 +1,202 @@
 import { stringify } from "../deps.ts";
 import {
-  IHeader,
-  Methods,
-  Options,
-  Output,
-  Post,
-  Update,
+    IHeader,
+    Methods,
+    Options,
+    Output,
+    Post,
+    Update,
 } from "./interfaces.ts";
 
 const defaultOptions = <Options>{
-  baseUrl: "https://api.paste.gg",
-  mainUrl: "https://paste.gg",
-  version: 1,
+    baseUrl: "https://api.paste.gg",
+    mainUrl: "https://paste.gg",
+    version: 1,
 };
 
 /**
  * The main class for interacting with the Paste.gg API
  */
 class PasteGG {
-  readonly #auth: string;
-  readonly #url: string;
-  readonly options: Options;
+    readonly #auth: string;
+    readonly #url: string;
+    readonly options: Options;
 
-  /**
-   * Create a new instance of PasteGG
-   * @param {string} auth Optional auth key
-   * @param {Options} options Options for the paste server
-   * @class PasteGG
-   * @public
-   * @example
-   * // If you want to be anonymous
-   * const pasteGG = new PasteGG()
-   *
-   * // If you want to use an api key
-   * const pasteGG = new PasteGG("apiKeyHere")
-   */
-  constructor(auth: string = "", options: Options = defaultOptions) {
     /**
-     * The auth key
-     * @type {string}
-     * @private
-     * @readonly
-     */
-    this.#auth = auth;
-    /**
-     * The options for the paste server
-     * @type {Options}
+     * Create a new instance of PasteGG
+     * @param {string} auth Optional auth key
+     * @param {Options} options Options for the paste server
+     * @class PasteGG
      * @public
-     * @readonly
+     * @example
+     * // If you want to be anonymous
+     * const pasteGG = new PasteGG()
+     *
+     * // If you want to use an api key
+     * const pasteGG = new PasteGG("apiKeyHere")
      */
-    this.options = Object.assign<Options, Options>(defaultOptions, options);
+    constructor(auth: string = "", options: Options = defaultOptions) {
+        /**
+         * The auth key
+         * @type {string}
+         * @private
+         * @readonly
+         */
+        this.#auth = auth;
+        /**
+         * The options for the paste server
+         * @type {Options}
+         * @public
+         * @readonly
+         */
+        this.options = Object.assign<Options, Options>(defaultOptions, options);
+        /**
+         * The full URL for the API
+         * @type {string}
+         * @private
+         * @readonly
+         */
+        this.#url = `${this.options.baseUrl}/v${this.options.version}`;
+    }
+
     /**
-     * The full URL for the API
-     * @type {string}
+     * Make a request to the API.
+     * @param {keyof typeof Methods} method
+     * @param {string} path
+     * @param {object} body
+     * @param {string} key
+     * @returns {Promise<T>}
      * @private
-     * @readonly
      */
-    this.#url = `${this.options.baseUrl}/v${this.options.version}`;
-  }
+    private async _request<T>(
+        method: keyof typeof Methods,
+        path: string,
+        body?: object | null,
+        key?: string,
+    ): Promise<T> {
+        const headers: IHeader = {};
+        if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
+        if (key?.length) headers.Authorization = `Key ${key}`;
+        if (method !== "GET") headers["Content-Type"] = "application/json";
 
-  /**
-   * Make a request to the API.
-   * @param {keyof typeof Methods} method
-   * @param {string} path
-   * @param {object} body
-   * @param {string} key
-   * @returns {Promise<T>}
-   * @private
-   */
-  private async _request<T>(
-    method: keyof typeof Methods,
-    path: string,
-    body?: object | null,
-    key?: string
-  ): Promise<T> {
-    const headers: IHeader = {};
-    if (this.#auth) headers.Authorization = `Key ${this.#auth}`;
-    if (key?.length) headers.Authorization = `Key ${key}`;
-    if (method !== "GET") headers["Content-Type"] = "application/json";
+        let urlPath = `${this.#url}${path}`;
+        if (body && method === "GET") urlPath += `?${stringify(body)}`;
 
-    let urlPath = `${this.#url}${path}`;
-    if (body && method === "GET") urlPath += `?${stringify(body)}`;
+        const res = await fetch(urlPath, {
+            method,
+            headers,
+            body: body && method !== "GET" ? JSON.stringify(body) : null,
+        });
 
-    const res = await fetch(urlPath, {
-      method,
-      headers,
-      body: body && method !== "GET" ? JSON.stringify(body) : null,
-    });
-
-    return res.json();
-  }
-
-  /**
-   * Get an existing paste.
-   * @see https://github.com/ascclemens/paste/blob/master/api.md#get-pastesid
-   * @param {string} id The ID of the paste.
-   * @param {boolean} full Includes the contents of files if true.
-   * @returns {Promise<Output>}
-   * @public
-   * @example
-   * // if you would like to exclude file contents
-   * await pasteGG.get("idHere")
-   *
-   * // If you would like to include file contents
-   * await pasteGG.get("idHere", true)
-   */
-  get(id: string, full: boolean = false ): Promise<Output> {
-    if (!id?.length) {
-      throw new Error("A paste ID is required to use PasteGG#get()");
+        return res.json();
     }
 
-    return this._request<Output>(Methods.GET, `/pastes/${id}`, { full });
-  }
+    /**
+     * Get an existing paste.
+     * @see https://github.com/ascclemens/paste/blob/master/api.md#get-pastesid
+     * @param {string} id The ID of the paste.
+     * @param {boolean} full Includes the contents of files if true.
+     * @returns {Promise<Output>}
+     * @public
+     * @example
+     * // if you would like to exclude file contents
+     * await pasteGG.get("idHere")
+     *
+     * // If you would like to include file contents
+     * await pasteGG.get("idHere", true)
+     */
+    get(id: string, full: boolean = false): Promise<Output> {
+        if (!id?.length) {
+            throw new Error("A paste ID is required to use PasteGG#get()");
+        }
 
-  /**
-   * Create a new paste.
-   * @see https://github.com/ascclemens/paste/blob/master/api.md#post-pastes
-   * @param {Post} input The information to create the paste with.
-   * @returns {Promise<Output>}
-   * @public
-   * @example
-   * await pasteGG.post({
-   *   name: "Paste name", // Optional
-   *   description: "Paste description", // Optional
-   *   expires: "2020-12-21T02:25:56.428Z", // Optional (must be a UTC ISO 8601 string)
-   *   files: [{
-   *     name: "file.txt", // Optional
-   *     content: {
-   *       format: "text",
-   *       value: "This is where the file content will go"
-   *     }
-   *   }]
-   * })
-   */
-  async post(input: Post): Promise<Output> {
-    if (!input) {
-      throw new Error("An input object is required to use PasteGG#post()");
+        return this._request<Output>(Methods.GET, `/pastes/${id}`, { full });
     }
 
-    const res = await this._request<Output>(Methods.POST, "/pastes", input);
-    if (res.result) res.result.url = `${this.options.mainUrl}/${res.result.id}`;
-    return res;
-  }
+    /**
+     * Create a new paste.
+     * @see https://github.com/ascclemens/paste/blob/master/api.md#post-pastes
+     * @param {Post} input The information to create the paste with.
+     * @returns {Promise<Output>}
+     * @public
+     * @example
+     * await pasteGG.post({
+     *   name: "Paste name", // Optional
+     *   description: "Paste description", // Optional
+     *   expires: "2020-12-21T02:25:56.428Z", // Optional (must be a UTC ISO 8601 string)
+     *   files: [{
+     *     name: "file.txt", // Optional
+     *     content: {
+     *       format: "text",
+     *       value: "This is where the file content will go"
+     *     }
+     *   }]
+     * })
+     */
+    async post(input: Post): Promise<Output> {
+        if (!input) {
+            throw new Error(
+                "An input object is required to use PasteGG#post()",
+            );
+        }
 
-  /**
-   * Deletes an existing paste.
-   * @see https://github.com/ascclemens/paste/blob/master/api.md#delete-pastesid
-   * @param {string} id The ID of the paste to delete.
-   * @param {string} [key] Auth key or deletion key (leave blank if you have set the auth key in the constructor)
-   * @returns {Promise<Output | void>}
-   * @public
-   * @example
-   * // Delete with deletion key
-   * await pasteGG.delete("idHere", "deletionKeyHere")
-   *
-   * // Delete with auth key if not set in constructor
-   * await pasteGG.delete("idHere", "authKeyHere")
-   *
-   * // Leave blank if auth key is in the class constructor
-   * await pasteGG.delete("idHere")
-   */
-  delete(id: string, key?: string): Promise<Output | void> {
-    if (!this.#auth?.length && !key?.length)
-      throw new Error(
-        "An auth key or deletion key is needed to use PasteGG#delete()"
-      );
+        const res = await this._request<Output>(Methods.POST, "/pastes", input);
+        if (res.result)
+            res.result.url = `${this.options.mainUrl}/${res.result.id}`;
+        return res;
+    }
 
-    return this._request<Output>(Methods.DELETE, `/pastes/${id}`, null, key);
-  }
+    /**
+     * Deletes an existing paste.
+     * @see https://github.com/ascclemens/paste/blob/master/api.md#delete-pastesid
+     * @param {string} id The ID of the paste to delete.
+     * @param {string} [key] Auth key or deletion key (leave blank if you have set the auth key in the constructor)
+     * @returns {Promise<Output | void>}
+     * @public
+     * @example
+     * // Delete with deletion key
+     * await pasteGG.delete("idHere", "deletionKeyHere")
+     *
+     * // Delete with auth key if not set in constructor
+     * await pasteGG.delete("idHere", "authKeyHere")
+     *
+     * // Leave blank if auth key is in the class constructor
+     * await pasteGG.delete("idHere")
+     */
+    delete(id: string, key?: string): Promise<Output | void> {
+        if (!this.#auth?.length && !key?.length)
+            throw new Error(
+                "An auth key or deletion key is needed to use PasteGG#delete()",
+            );
 
-  /**
-   * Update an existing paste.
-   * @see https://github.com/ascclemens/paste/blob/master/api.md#patch-pastesid
-   * @param {string} id The ID for the paste to update.
-   * @param {Update} options The options you wish to update.
-   * @returns {Promise<Output | void>}
-   * @public
-   * @example
-   * await pasteGG.update("idHere", {
-   *   name: "new name", // Optional (if you want to remove the name)
-   *   description: "new description"
-   * })
-   */
-  update(id: string, options: Update): Promise<Output | void> {
-    if (!this.#auth?.length)
-      throw new Error("An auth key is required to use PasteGG#update()");
+        return this._request<Output>(
+            Methods.DELETE,
+            `/pastes/${id}`,
+            null,
+            key,
+        );
+    }
 
-    if (!options.name) options.name = null;
-    return this._request<Output>(Methods.PATCH, `/pastes/${id}`, options);
-  }
+    /**
+     * Update an existing paste.
+     * @see https://github.com/ascclemens/paste/blob/master/api.md#patch-pastesid
+     * @param {string} id The ID for the paste to update.
+     * @param {Update} options The options you wish to update.
+     * @returns {Promise<Output | void>}
+     * @public
+     * @example
+     * await pasteGG.update("idHere", {
+     *   name: "new name", // Optional (if you want to remove the name)
+     *   description: "new description"
+     * })
+     */
+    update(id: string, options: Update): Promise<Output | void> {
+        if (!this.#auth?.length)
+            throw new Error("An auth key is required to use PasteGG#update()");
+
+        if (!options.name) options.name = null;
+        return this._request<Output>(Methods.PATCH, `/pastes/${id}`, options);
+    }
 }
 
 export { PasteGG };

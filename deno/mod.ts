@@ -1,2 +1,2 @@
-export * from "./src/class.ts"
-export * from "./src/interfaces.ts"
+export * from "./src/class.ts";
+export * from "./src/interfaces.ts";
