@@ -3,25 +3,14 @@
 var querystring = require('querystring');
 
 var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), member.set(obj, value), value);
 var defaultOptions = {
   baseUrl: "https://api.paste.gg",
   mainUrl: "https://paste.gg",
@@ -43,8 +32,8 @@ var _PasteGG = class _PasteGG {
    * const pasteGG = new PasteGG("apiKeyHere")
    */
   constructor(auth, options = defaultOptions) {
-    __privateAdd(this, _auth, void 0);
-    __privateAdd(this, _url, void 0);
+    __privateAdd(this, _auth);
+    __privateAdd(this, _url);
     __privateSet(this, _auth, auth);
     this.options = Object.assign(defaultOptions, options);
     this.version = "v1.0.5";
@@ -61,15 +50,11 @@ var _PasteGG = class _PasteGG {
    */
   async _request(method, path, body, key) {
     const headers = {};
-    if (__privateGet(this, _auth))
-      headers.Authorization = `Key ${__privateGet(this, _auth)}`;
-    if (key?.length)
-      headers.Authorization = `Key ${key}`;
-    if (method !== "GET")
-      headers["Content-Type"] = "application/json";
+    if (__privateGet(this, _auth)) headers.Authorization = `Key ${__privateGet(this, _auth)}`;
+    if (key?.length) headers.Authorization = `Key ${key}`;
+    if (method !== "GET") headers["Content-Type"] = "application/json";
     let urlPath = `${__privateGet(this, _url)}${path}`;
-    if (body && method === "GET")
-      urlPath += `?${querystring.stringify(body)}`;
+    if (body && method === "GET") urlPath += `?${querystring.stringify(body)}`;
     const res = await fetch(urlPath, {
       method,
       headers,
@@ -180,8 +165,7 @@ var _PasteGG = class _PasteGG {
   async update(id, options) {
     if (!__privateGet(this, _auth)?.length)
       throw new Error("An auth key is required to use PasteGG#update()");
-    if (!options.name)
-      options.name = null;
+    if (!options.name) options.name = null;
     return this._request("PATCH" /* PATCH */, `/pastes/${id}`, options);
   }
 };
@@ -191,5 +175,5 @@ __name(_PasteGG, "PasteGG");
 var PasteGG = _PasteGG;
 
 module.exports = PasteGG;
-//# sourceMappingURL=out.js.map
+//# sourceMappingURL=index.cjs.map
 //# sourceMappingURL=index.cjs.map
