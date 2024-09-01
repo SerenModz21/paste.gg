@@ -46,7 +46,7 @@
         "typescript": "^5.3.3"
     },
     "engines": {
-        "node": ">=v18"
+        "node": ">=20.17.0"
     },
     "publishConfig": {
         "access": "public"
