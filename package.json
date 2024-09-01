@@ -34,6 +34,7 @@
     ],
     "scripts": {
         "build": "rimraf ./dist && tsup",
+        "typecheck": "tsc --noEmit",
         "test": "node test/index.mjs",
         "prepublishOnly": "yarn build"
     },

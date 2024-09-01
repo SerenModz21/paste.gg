@@ -52,7 +52,8 @@ var _PasteGG = class _PasteGG {
     if (key?.length) headers.Authorization = `Key ${key}`;
     if (method !== "GET") headers["Content-Type"] = "application/json";
     let urlPath = `${__privateGet(this, _url)}${path}`;
-    if (body && method === "GET") urlPath += `?${stringify(body)}`;
+    if (body && method === "GET")
+      urlPath += `?${stringify(body)}`;
     const res = await fetch(urlPath, {
       method,
       headers,
@@ -140,12 +141,7 @@ var _PasteGG = class _PasteGG {
       throw new Error(
         "An auth key or deletion key is needed to use PasteGG#delete()"
       );
-    return this._request(
-      "DELETE" /* DELETE */,
-      `/pastes/${id}`,
-      null,
-      key
-    );
+    return this._request("DELETE" /* DELETE */, `/pastes/${id}`, null, key);
   }
   /**
    * Update an existing paste.
