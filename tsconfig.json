@@ -17,7 +17,7 @@
         "declaration": true,
         "declarationDir": "./typings",
         "skipLibCheck": true,
-        "tsBuildInfoFile": ".tsbuildinfo",
+        "tsBuildInfoFile": ".tsbuildinfo"
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]

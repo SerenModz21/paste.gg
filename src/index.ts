@@ -7,7 +7,7 @@ import {
     type Post,
     type Update,
     type Result,
-    type ResultOutput
+    type ResultOutput,
 } from "./interfaces.js";
 
 const defaultOptions = {
@@ -90,7 +90,8 @@ export default class PasteGG {
         if (method !== "GET") headers["Content-Type"] = "application/json";
 
         let urlPath = `${this.#url}${path}`;
-        if (body && method === "GET") urlPath += `?${stringify(body as ParsedUrlQueryInput)}`;
+        if (body && method === "GET")
+            urlPath += `?${stringify(body as ParsedUrlQueryInput)}`;
 
         const res = await fetch(urlPath, {
             method,
@@ -99,9 +100,12 @@ export default class PasteGG {
         });
 
         try {
-            return await res.json() as Output<T>;
+            return (await res.json()) as Output<T>;
         } catch (e) {
-            if (e instanceof Error && e.message === "Unexpected end of JSON input") {
+            if (
+                e instanceof Error &&
+                e.message === "Unexpected end of JSON input"
+            ) {
                 return { status: "success", result: null };
             }
 
@@ -187,12 +191,7 @@ export default class PasteGG {
                 "An auth key or deletion key is needed to use PasteGG#delete()",
             );
 
-        return this._request(
-            Methods.DELETE,
-            `/pastes/${id}`,
-            null,
-            key,
-        );
+        return this._request(Methods.DELETE, `/pastes/${id}`, null, key);
     }
 
     /**
