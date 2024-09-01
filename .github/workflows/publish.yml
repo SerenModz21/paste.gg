@@ -11,15 +11,19 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
+
       - name: Use Node.js v20
         uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
+
       - name: Install Dependencies
         run: yarn install --immutable
+
       - name: Compile TypeScript
         run: yarn build
+
       - name: Publish to NPM
         run: yarn npm publish
         env:
