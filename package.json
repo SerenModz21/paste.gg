@@ -41,7 +41,7 @@
     "devDependencies": {
         "@commitlint/cli": "^19.5.0",
         "@commitlint/config-conventional": "^19.5.0",
-        "@types/node": "^20.16.11",
+        "@types/node": "^20.16.13",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
@@ -54,5 +54,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "packageManager": "yarn@4.5.0"
+    "packageManager": "yarn@4.5.1"
 }
