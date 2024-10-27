@@ -41,11 +41,11 @@
     "devDependencies": {
         "@commitlint/cli": "^19.5.0",
         "@commitlint/config-conventional": "^19.5.0",
-        "@types/node": "^20.16.13",
+        "@types/node": "^20.17.1",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
-        "tsup": "^8.3.0",
+        "tsup": "^8.3.5",
         "typescript": "^5.6.3"
     },
     "engines": {
