@@ -39,7 +39,7 @@
         "prepublishOnly": "yarn build"
     },
     "devDependencies": {
-        "@commitlint/cli": "^19.6.0",
+        "@commitlint/cli": "^19.6.1",
         "@commitlint/config-conventional": "^19.6.0",
         "@types/node": "^22.10.2",
         "esbuild-plugin-version-injector": "^1.2.1",
