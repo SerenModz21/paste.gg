@@ -639,7 +639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.10.10":
+"@types/node@npm:*, @types/node@npm:^22.13.0":
   version: 22.13.0
   resolution: "@types/node@npm:22.13.0"
   dependencies:
@@ -1856,7 +1856,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^19.6.1"
     "@commitlint/config-conventional": "npm:^19.6.0"
-    "@types/node": "npm:^22.10.10"
+    "@types/node": "npm:^22.13.0"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     prettier: "npm:^3.4.2"
     rimraf: "npm:^6.0.1"
