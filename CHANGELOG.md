@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 
 - Remove node v18 warning because it looks terrible on npm ([e40b1ae](https://github.com/SerenModz21/paste.gg/commit/e40b1ae373ecc99964f71eb996dcf0409a130b43))
 - Add node v18 warning to readme ([977d149](https://github.com/SerenModz21/paste.gg/commit/977d1492d43a08766664b82617d327b73819d1d6))
-- Add contributors  graph and update headings ([0ce246d](https://github.com/SerenModz21/paste.gg/commit/0ce246d016b680db9b26d0a06f3b109d41defcb4))
+- Add contributors graph and update headings ([0ce246d](https://github.com/SerenModz21/paste.gg/commit/0ce246d016b680db9b26d0a06f3b109d41defcb4))
 
 ## 🚀 Features
 
@@ -30,7 +30,3 @@ All notable changes to this project will be documented in this file.
 - Format code ([9701240](https://github.com/SerenModz21/paste.gg/commit/9701240ccfe4d22084b5450ba0d6b4840b93ade4))
 - Format project ([5ed7a09](https://github.com/SerenModz21/paste.gg/commit/5ed7a095d66a3ba8cecf3ea2c4081cc17f4c6e7e))
 - Format with prettier and indent with 4 spaces ([3fdec94](https://github.com/SerenModz21/paste.gg/commit/3fdec945373e1ecd28f89f9bffd8285c27782bc5))
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
