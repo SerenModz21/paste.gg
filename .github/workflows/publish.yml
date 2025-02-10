@@ -36,6 +36,8 @@ jobs:
 
       - name: Bump Version
         run: yarn bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         run: |
