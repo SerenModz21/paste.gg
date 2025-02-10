@@ -48,6 +48,8 @@ jobs:
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
 
           yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --skip-changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         run: |
