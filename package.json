@@ -43,7 +43,7 @@
         "@commitlint/config-conventional": "^19.7.1",
         "@types/node": "^22.13.1",
         "esbuild-plugin-version-injector": "^1.2.1",
-        "prettier": "^3.4.2",
+        "prettier": "^3.5.0",
         "rimraf": "^6.0.1",
         "tsup": "^8.3.6",
         "typescript": "^5.7.3"
