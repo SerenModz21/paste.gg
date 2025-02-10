@@ -18,13 +18,6 @@
 
 ### Installation
 
-> [!WARNING]
-> The `node-fetch` package has been replaced with the native Fetch API. Therefore, Node v18 or higher is now required!
->
-> If you use Node versions below v18, please update or remain on the `v1.0.5` of the API wrapper.
->
-> The reason for not using a major version is that those versions have long been end-of-life.
-
 ```sh
 # Stable release
 npm install paste.gg
