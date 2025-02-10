@@ -1,31 +1,27 @@
-name: Publish
+name: NPM Auto Deprecate
 
 on:
-  workflow_dispatch:
-  release:
-    types: [created]
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  publish:
+  auto-deprecate:
+    name: NPM Auto Deprecate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
 
-      - name: Use Node.js v20
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: yarn
-          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Compile TypeScript
-        run: yarn build
-
-      - name: Publish to NPM
-        run: yarn npm publish
+      - name: Run NPM Auto Deprecate
+        run: yarn npm-deprecate
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

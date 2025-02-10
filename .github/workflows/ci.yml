@@ -17,10 +17,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: yarn
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: yarn --immutable
 
       - name: Check types
         run: yarn typecheck
@@ -35,10 +36,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: yarn
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: yarn --immutable
 
       - name: Run Prettier
         run: yarn prettier --check .
@@ -55,10 +57,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: yarn
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: yarn --immutable
 
       # https://commitlint.js.org/guides/ci-setup#github-actions
       - name: Validate current commit (last commit) with commitlint
@@ -79,10 +82,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: yarn
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: yarn --immutable
 
       - name: Build
         run: yarn build

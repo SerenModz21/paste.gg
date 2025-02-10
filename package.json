@@ -41,6 +41,7 @@
     "devDependencies": {
         "@commitlint/cli": "^19.7.1",
         "@commitlint/config-conventional": "^19.7.1",
+        "@favware/npm-deprecate": "^2.0.0",
         "@types/node": "^22.13.1",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.5.0",

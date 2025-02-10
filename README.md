@@ -2,7 +2,7 @@
   <h1>paste.gg</h1>
   <a href="https://www.npmjs.com/package/paste.gg"><img src="https://img.shields.io/npm/v/paste.gg.svg?maxAge=3600" alt="NPM version" /></a>
   <a href="https://www.npmjs.com/package/paste.gg"><img src="https://img.shields.io/npm/dt/paste.gg.svg?maxAge=3600" alt="NPM downloads" /></a>
-  <a href="https://github.com/SerenModz21/paste.gg/actions"><img src="https://github.com/SerenModz21/paste.gg/actions/workflows/codeql-analysis.yml/badge.svg" alt="Build status" /></a>
+  <a href="https://github.com/SerenModz21/paste.gg/actions"><img src="https://github.com/SerenModz21/paste.gg/actions/workflows/github-code-scanning/codeql/badge.svg" alt="Build status" /></a>
   <a href="https://github.com/SerenModz21/paste.gg"><img src="https://img.shields.io/github/languages/code-size/SerenModz21/paste.gg" alt="GitHub code size"></a>
   <br />
   <p style="max-width: 600px">
@@ -16,31 +16,24 @@
 • **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
 • **[NPM](https://www.npmjs.com/package/paste.gg)** <br/>
 
-### Usages
+### Installation
 
-#### Install the stable version
-
-```
+```sh
+# Stable release
 npm install paste.gg
 
-yarn add paste.gg
+# Next release (changes on GitHub that haven't been released yet)
+npm install paste.gg@next
 ```
 
-#### Install the beta version (git is required)
+### Getting Started
 
-```
-npm install SerenModz21/paste.gg#beta
-
-yarn add SerenModz21/paste.gg#beta
-```
-
-<br/>
-
-#### Get started with paste.gg
+#### Create a new instance of the wrapper
 
 ```ts
+// CommonJS (CJS)
 const PasteGG = require("paste.gg");
-// or
+// ES Modules (ESM)
 import PasteGG from "paste.gg";
 
 // If you want to be anonymous
@@ -49,8 +42,6 @@ const pasteGG = new PasteGG();
 // If you want to use an api key
 const pasteGG = new PasteGG("apiKeyHere");
 ```
-
-<br/>
 
 #### Get information about a post
 
@@ -61,8 +52,6 @@ await pasteGG.get("idHere");
 // If you would like to include file contents
 await pasteGG.get("idHere", true);
 ```
-
-<br/>
 
 #### Post a new paste ([Click here for more options](https://github.com/ascclemens/paste/blob/master/api.md#post-pastes))
 
@@ -83,8 +72,6 @@ await pasteGG.post({
 });
 ```
 
-<br/>
-
 #### Delete a paste (auth/deletion key needed)
 
 ```ts
@@ -98,8 +85,6 @@ await pasteGG.delete("idHere", "authKeyHere");
 await pasteGG.delete("idHere");
 ```
 
-<br/>
-
 #### Update the post
 
 ```ts
@@ -109,10 +94,8 @@ await pasteGG.update("idHere", {
 });
 ```
 
-<br />
-
 ---
 
 Contributions are more than welcome. If you would like to add to this API, you can open a pull request as I haven't added everything on the API, only the things that will get used more often.
 
-Copyright © SerenModz21 2018 - 2021
+Copyright © SerenModz21 2020
