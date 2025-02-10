@@ -63,6 +63,6 @@ jobs:
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://npm.pkg.github.com"
-          yarn npm publish --tag "${{ steps.bump.outputs.tag }}"
+          yarn npm publish --tag "${{ steps.bump.outputs.tag }}" --scope @SerenModz21
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
