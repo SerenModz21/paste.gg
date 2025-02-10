@@ -38,7 +38,7 @@
         "test": "node test/index.mjs",
         "prepack": "yarn build",
         "bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+        "check-update": "cliff-jumper --dry-run"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.7.1",

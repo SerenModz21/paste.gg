@@ -2,7 +2,7 @@ name: NPM Auto Deprecate
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   auto-deprecate:

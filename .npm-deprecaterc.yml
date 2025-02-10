@@ -1,3 +1,3 @@
-name: '*next*'
+name: "*next*"
 package:
-  - 'paste.gg'
+    - "paste.gg"
