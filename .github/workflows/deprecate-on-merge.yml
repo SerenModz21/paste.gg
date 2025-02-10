@@ -1,0 +1,28 @@
+name: NPM Deprecate PR versions On Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  auto-deprecate:
+    name: NPM Auto Deprecate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Install Dependencies
+        run: yarn --immutable
+
+      - name: Run NPM Auto Deprecate
+        run: yarn npm-deprecate --name "*pr-${{ github.event.number }}*" -d -v
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

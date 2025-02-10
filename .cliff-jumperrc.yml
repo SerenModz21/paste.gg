@@ -1,0 +1,11 @@
+name: paste.gg
+install: true
+packagePath: .
+commitMessageTemplate: "chore(release): release {{new-version}}"
+tagTemplate: "{{new-version}}"
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: SerenModz21/paste.gg
+gitHostVariant: github
