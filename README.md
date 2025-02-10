@@ -26,7 +26,7 @@ npm install paste.gg
 npm install paste.gg@next
 ```
 
-### Getting Started
+## Getting Started
 
 #### Create a new instance of the wrapper
 
@@ -94,8 +94,12 @@ await pasteGG.update("idHere", {
 });
 ```
 
----
+## Contributors
 
-Contributions are more than welcome. If you would like to add to this API, you can open a pull request as I haven't added everything on the API, only the things that will get used more often.
+Contributions are more than welcome. If you would like to add to the API wrapper, free free to open a pull request. I've only added the endpoints that I thought would be most common.
 
-Copyright © SerenModz21 2020
+Thank you to all the people who already contributed.
+
+<a href="https://github.com/SerenModz21/paste.gg/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=SerenModz21/paste.gg" />
+</a>
