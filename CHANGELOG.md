@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.1](https://github.com/SerenModz21/paste.gg/compare/v1.1.0...v1.1.1) - (2025-02-11)
+
+## 🐛 Bug Fixes
+
+- Remove the version prefix from the node engine requirement ([bb3a870](https://github.com/SerenModz21/paste.gg/commit/bb3a870901a3cb850d27f85128e4917a55c5d770))
+
+## 🪞 Styling
+
+- Format changelog ([dd32ace](https://github.com/SerenModz21/paste.gg/commit/dd32aceaa69511a4b0eb79487b6120e4bad5be42))
+
 # [1.1.0](https://github.com/SerenModz21/paste.gg/compare/v1.0.2...v1.1.0) - (2025-02-10)
 
 ## 🏠 Refactor
