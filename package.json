@@ -52,7 +52,7 @@
         "typescript": "^5.7.3"
     },
     "engines": {
-        "node": ">=v18"
+        "node": ">=18"
     },
     "publishConfig": {
         "access": "public"
