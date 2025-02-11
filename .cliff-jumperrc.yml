@@ -1,7 +1,7 @@
 name: paste.gg
 install: true
 packagePath: .
-commitMessageTemplate: "chore(release): release {{new-version}}"
+commitMessageTemplate: "chore(release): release v{{new-version}}"
 tagTemplate: v{{new-version}}
 identifierBase: false
 pushTag: true
