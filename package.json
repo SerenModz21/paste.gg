@@ -44,12 +44,12 @@
         "@commitlint/config-conventional": "^19.7.1",
         "@favware/cliff-jumper": "^6.0.0",
         "@favware/npm-deprecate": "^2.0.0",
-        "@types/node": "^22.13.5",
+        "@types/node": "^22.13.8",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.5.2",
         "pretty-quick": "^4.0.0",
-        "tsup": "^8.3.6",
-        "typescript": "^5.7.3"
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.2"
     },
     "engines": {
         "node": ">=18"
@@ -57,5 +57,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "packageManager": "yarn@4.6.0"
+    "packageManager": "yarn@4.7.0"
 }

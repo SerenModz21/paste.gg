@@ -846,12 +846,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.13.5":
-  version: 22.13.7
-  resolution: "@types/node@npm:22.13.7"
+"@types/node@npm:*, @types/node@npm:^22.13.8":
+  version: 22.13.8
+  resolution: "@types/node@npm:22.13.8"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/05dae7014a4970b06dee4818573dee9d98faf431d96c7f649585c55c7a9c603e264a3817663ca28f3603598bb9703b13afeb38244570c15de731ac67dd9dafc4
+  checksum: 10/b69de3caab80336747bf41b5063478d23b196b9594c6f2eb819791380cc571676087dceb0fde9531ef7a1293f3eae12a9aaf79d8de349378c29a17c5e657bc78
   languageName: node
   linkType: hard
 
@@ -2497,12 +2497,12 @@ __metadata:
     "@commitlint/config-conventional": "npm:^19.7.1"
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/npm-deprecate": "npm:^2.0.0"
-    "@types/node": "npm:^22.13.5"
+    "@types/node": "npm:^22.13.8"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     prettier: "npm:^3.5.2"
     pretty-quick: "npm:^4.0.0"
-    tsup: "npm:^8.3.6"
-    typescript: "npm:^5.7.3"
+    tsup: "npm:^8.4.0"
+    typescript: "npm:^5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -3068,7 +3068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.3.6":
+"tsup@npm:^8.4.0":
   version: 8.4.0
   resolution: "tsup@npm:8.4.0"
   dependencies:
@@ -3109,7 +3109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.3":
+"typescript@npm:^5.8.2":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -3119,7 +3119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.8.2#optional!builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
