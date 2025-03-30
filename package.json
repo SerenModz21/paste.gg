@@ -44,7 +44,7 @@
         "@commitlint/config-conventional": "^19.8.0",
         "@favware/cliff-jumper": "^6.0.0",
         "@favware/npm-deprecate": "^2.0.0",
-        "@types/node": "^22.13.11",
+        "@types/node": "^22.13.14",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.5.3",
         "pretty-quick": "^4.1.1",
@@ -57,5 +57,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "packageManager": "yarn@4.7.0"
+    "packageManager": "yarn@4.8.0"
 }
