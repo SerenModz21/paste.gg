@@ -21,6 +21,8 @@ jobs:
     name: Publish Next to NPM
     runs-on: ubuntu-latest
     if: github.repository_owner == 'SerenModz21'
+    permissions:
+      id-token: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
@@ -50,7 +52,7 @@ jobs:
 
           yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --skip-changelog
 
-          yarn npm publish --tag ${TAG}
+          yarn npm publish --provenance --tag ${TAG}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
