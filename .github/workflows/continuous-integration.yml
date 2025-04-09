@@ -8,7 +8,7 @@ on:
 
 jobs:
   typecheck:
-    name: Check TypeScript types
+    name: Check TypeScript Types
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
@@ -23,8 +23,9 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Check types
-        run: yarn typecheck
+      - name: Check Types
+        # setup-node tsc problem matcher doesn't like pretty errors
+        run: yarn typecheck --pretty false
 
   formatting:
     name: Formatting
@@ -42,7 +43,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Run Prettier
+      - name: Check Prettier
         run: yarn prettier --check .
 
   commitlint:
