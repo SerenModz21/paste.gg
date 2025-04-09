@@ -12,9 +12,9 @@
 
 ### Links
 
-• **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
-• **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
-• **[NPM](https://www.npmjs.com/package/paste.gg)** <br/>
+- **[API Documentation](https://github.com/ascclemens/paste/blob/master/api.md#api)** <br/>
+- **[GitHub](https://github.com/SerenModz21/paste.gg)** <br/>
+- **[NPM](https://www.npmjs.com/package/paste.gg)** <br/>
 
 ### Installation
 
