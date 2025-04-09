@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.2](https://github.com/SerenModz21/paste.gg/compare/v1.1.1...v1.1.2) - (2025-04-09)
+
+## 📝 Documentation
+
+- **readme:** Replace unicode bullet with a markdown list ([fc8b5a7](https://github.com/SerenModz21/paste.gg/commit/fc8b5a7b70c2f3bd61fb7ca6669f1b790e417f20))
+
 # [1.1.1](https://github.com/SerenModz21/paste.gg/compare/v1.1.0...v1.1.1) - (2025-02-11)
 
 ## 🐛 Bug Fixes
