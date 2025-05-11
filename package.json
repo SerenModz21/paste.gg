@@ -40,11 +40,11 @@
         "check-update": "cliff-jumper --dry-run"
     },
     "devDependencies": {
-        "@commitlint/cli": "^19.8.0",
-        "@commitlint/config-conventional": "^19.8.0",
+        "@commitlint/cli": "^19.8.1",
+        "@commitlint/config-conventional": "^19.8.1",
         "@favware/cliff-jumper": "^6.0.0",
         "@favware/npm-deprecate": "^2.0.0",
-        "@types/node": "^22.15.9",
+        "@types/node": "^22.15.17",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.5.3",
         "pretty-quick": "^4.1.1",
