@@ -1,5 +1,5 @@
 import { esbuildPluginVersionInjector } from "esbuild-plugin-version-injector";
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 // This tsup config was originally made by https://github.com/sapphiredev
 
@@ -12,8 +12,8 @@ export default defineConfig({
     sourcemap: true,
     target: "es2021",
     tsconfig: "tsconfig.json",
-    keepNames: true,
-    esbuildPlugins: [esbuildPluginVersionInjector()],
+    plugins: [esbuildPluginVersionInjector()],
     treeshake: true,
     format: ["cjs", "esm"],
+    fixedExtension: true,
 });
