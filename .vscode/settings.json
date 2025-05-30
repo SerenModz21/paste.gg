@@ -1,0 +1,8 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "serenmodz21",
+        "projectKey": "SerenModz21_paste.gg"
+    }
+}
