@@ -44,7 +44,7 @@
         "@commitlint/config-conventional": "^20.0.0",
         "@favware/cliff-jumper": "^6.0.0",
         "@favware/npm-deprecate": "^2.0.0",
-        "@types/node": "^22.18.8",
+        "@types/node": "^22.18.10",
         "esbuild-plugin-version-injector": "^1.2.1",
         "prettier": "^3.6.2",
         "pretty-quick": "^4.2.2",
