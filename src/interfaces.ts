@@ -42,8 +42,10 @@ export interface Author {
     name?: string;
 }
 
-export interface Post
-    extends Pick<Result, "name" | "description" | "visibility" | "expires"> {
+export interface Post extends Pick<
+    Result,
+    "name" | "description" | "visibility" | "expires"
+> {
     files: FileOut[];
 }
 
