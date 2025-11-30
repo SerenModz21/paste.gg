@@ -46,7 +46,7 @@
         "@favware/npm-deprecate": "^2.0.0",
         "@types/node": "^24.10.1",
         "esbuild-plugin-version-injector": "^1.2.1",
-        "prettier": "^3.6.2",
+        "prettier": "^3.7.3",
         "pretty-quick": "^4.2.2",
         "tsup": "^8.5.1",
         "typescript": "^5.9.3"
@@ -57,5 +57,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "packageManager": "yarn@4.11.0"
+    "packageManager": "yarn@4.12.0"
 }
