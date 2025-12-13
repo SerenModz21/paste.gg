@@ -867,7 +867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.10.2":
+"@types/node@npm:*, @types/node@npm:^24.10.3":
   version: 24.10.3
   resolution: "@types/node@npm:24.10.3"
   dependencies:
@@ -2461,7 +2461,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^20.2.0"
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/npm-deprecate": "npm:^2.0.0"
-    "@types/node": "npm:^24.10.2"
+    "@types/node": "npm:^24.10.3"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     prettier: "npm:^3.7.4"
     pretty-quick: "npm:^4.2.2"
