@@ -22,7 +22,7 @@ on:
       - main
 
 concurrency:
-  group: ${{ github.workflow }}|${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}-${{ inputs.bump && 'prod' || inputs.prNumber || 'next' }}
   cancel-in-progress: ${{ !inputs.bump }}
 
 jobs:
