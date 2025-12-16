@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.3](https://github.com/SerenModz21/paste.gg/compare/v1.1.2...v1.1.3) - (2025-12-16)
+
+## 🪞 Styling
+
+- Format all yml files to have 2 space indentation ([d98fdd6](https://github.com/SerenModz21/paste.gg/commit/d98fdd6f02e18093d995af8b510886bf443e041e))
+
 # [1.1.2](https://github.com/SerenModz21/paste.gg/compare/v1.1.1...v1.1.2) - (2025-04-09)
 
 ## 📝 Documentation
