@@ -2,14 +2,34 @@ name: Publish
 
 on:
   workflow_dispatch:
+    inputs:
+      bump:
+        description: Whether or not to bump the release
+        required: false
+        default: false
+        type: boolean
+      prNumber:
+        description: The number of the PR that is being deployed
+        required: false
+        type: string
+      ref:
+        description: The branch that is being deployed
+        required: false
+        default: main
+        type: string
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}|${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ !inputs.bump }}
 
 jobs:
-  publish:
+  publish-prod:
+    name: Publish Production to NPM
     runs-on: ubuntu-latest
+    if: ${{ inputs.bump }}
     permissions:
       id-token: write
     steps:
@@ -55,8 +75,43 @@ jobs:
 
       - name: Publish to NPM
         run: |
-          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
           yarn npm publish
+
+  publish-next:
+    name: Publish Next to NPM
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.bump && github.repository_owner == 'SerenModz21' }}
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install Dependencies
+        run: yarn --immutable
+
+      - name: Build Packages
+        run: yarn build
+
+      - name: Bump Versions and Publish
+        run: |
+          # Resolve the tag to be used. "next" for push events, "pr-{prNumber}" for dispatch events.
+          TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
+
+          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+
+          yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --skip-changelog
+
+          yarn npm publish --tag ${TAG}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
