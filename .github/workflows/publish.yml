@@ -74,11 +74,8 @@ jobs:
 
       - name: Publish to NPM
         run: |
-          # yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
           yarn npm publish
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-next:
     name: Publish Next to NPM
@@ -110,12 +107,10 @@ jobs:
           # Resolve the tag to be used. "next" for push events, "pr-{prNumber}" for dispatch events.
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
 
-          # yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
 
           yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --skip-changelog
 
           yarn npm publish --tag ${TAG}
         env:
-          # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
