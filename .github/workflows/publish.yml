@@ -27,8 +27,9 @@ concurrency:
 
 jobs:
   publish-prod:
-    if: ${{ inputs.bump }}
+    name: Publish Production to NPM
     runs-on: ubuntu-latest
+    if: ${{ inputs.bump }}
     permissions:
       id-token: write
     steps:
