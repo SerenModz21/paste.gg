@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   typecheck:
     name: Check TypeScript Types
@@ -71,7 +74,11 @@ jobs:
 
       - name: Validate PR commits with commitlint
         if: github.event_name == 'pull_request'
-        run: yarn commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
+        run: |
+          yarn commitlint \
+            --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} \
+            --to ${{ github.event.pull_request.head.sha }} \
+            --verbose
 
   build:
     name: Build
