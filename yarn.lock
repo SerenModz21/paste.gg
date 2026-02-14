@@ -857,12 +857,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.10.11":
-  version: 24.10.12
-  resolution: "@types/node@npm:24.10.12"
+"@types/node@npm:^24.10.13":
+  version: 24.10.13
+  resolution: "@types/node@npm:24.10.13"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10/94231e8ff4151a97719d9f996a67e8eee01041f337d710762cafbbab2d15290da91c4a0d27b9577fa95d85ce678524d53e1b193f2270850b0746a6e9a43932d4
+  checksum: 10/c779d14cf17758a9d603e0c0978c8045bd070e259617ec16f4ddac419ec11aac0e0cf2bb013dab008fdbd2f46c39f82397884662bbdfabeb19bef0079679ea48
   languageName: node
   linkType: hard
 
@@ -2341,7 +2341,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^20.4.1"
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/npm-deprecate": "npm:^2.0.0"
-    "@types/node": "npm:^24.10.11"
+    "@types/node": "npm:^24.10.13"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     prettier: "npm:^3.8.1"
     pretty-quick: "npm:^4.2.2"
