@@ -42,11 +42,11 @@
     "devDependencies": {
         "@commitlint/cli": "^20.5.0",
         "@commitlint/config-conventional": "^20.5.0",
-        "@favware/cliff-jumper": "^6.0.0",
+        "@favware/cliff-jumper": "^6.1.0",
         "@favware/npm-deprecate": "^2.0.0",
         "@types/node": "^24.12.2",
         "esbuild-plugin-version-injector": "^1.2.1",
-        "prettier": "^3.8.1",
+        "prettier": "^3.8.3",
         "pretty-quick": "^4.2.2",
         "tsup": "^8.5.1",
         "typescript": "^5.9.3"
