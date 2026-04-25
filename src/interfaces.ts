@@ -49,7 +49,8 @@ export interface Post extends Pick<
     files: FileOut[];
 }
 
-export interface Update extends Pick<Result, "name"> {
+export interface Update {
+    name?: string | null;
     description: string;
 }
 

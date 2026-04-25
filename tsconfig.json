@@ -2,8 +2,9 @@
     "compilerOptions": {
         "module": "Node16",
         "target": "ES2021",
+        "rootDir": "src",
         "outDir": "dist",
-        "lib": ["ESNext"],
+        "lib": ["ESNext", "DOM"],
         "sourceMap": false,
         "inlineSourceMap": true,
         "inlineSources": true,
@@ -15,9 +16,9 @@
         "pretty": true,
         "allowJs": true,
         "declaration": true,
-        "declarationDir": "./typings",
         "skipLibCheck": true,
-        "tsBuildInfoFile": ".tsbuildinfo"
+        "tsBuildInfoFile": ".tsbuildinfo",
+        "types": ["node"]
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]

@@ -20,7 +20,7 @@ const defaultOptions = {
  * The main class for interacting with the Paste.gg API
  */
 export default class PasteGG {
-    readonly #auth: string;
+    readonly #auth: string | undefined;
     readonly #url: string;
     readonly options: Options;
     readonly version: string;
@@ -81,7 +81,7 @@ export default class PasteGG {
     private async _request<T = Result>(
         method: keyof typeof Methods,
         path: string,
-        body?: object,
+        body?: unknown,
         key?: string,
     ): Promise<Output<T>> {
         const headers: IHeader = {};
@@ -101,15 +101,23 @@ export default class PasteGG {
 
         try {
             return (await res.json()) as Output<T>;
-        } catch (e) {
-            if (
-                e instanceof Error &&
-                e.message === "Unexpected end of JSON input"
-            ) {
-                return { status: "success", result: null };
+        } catch (error) {
+            if (error instanceof Error) {
+                if (error.message === "Unexpected end of JSON input") {
+                    return { status: "success", result: null as unknown as T };
+                }
+                return {
+                    status: "error",
+                    error: error.name,
+                    message: error.message,
+                };
             }
 
-            return { status: "error", error: e.name, message: e.message };
+            return {
+                status: "error",
+                error: String(error),
+                message: "Something went wrong",
+            };
         }
     }
 
