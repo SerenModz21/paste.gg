@@ -19,7 +19,10 @@
         }
     },
     "homepage": "https://github.com/SerenModz21/paste.gg#readme",
-    "repository": "git://github.com/SerenModz21/paste.gg.git",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SerenModz21/paste.gg.git"
+    },
     "bugs": {
         "url": "https://github.com/SerenModz21/paste.gg/issues"
     },
