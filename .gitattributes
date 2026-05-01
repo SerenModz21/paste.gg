@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+yarn.lock linguist-generated
+.pnp.* binary linguist-generated
+.yarn/** linguist-vendored
+.yarn/releases/* binary
+.yarn/plugins/**/* binary
+
+.vscode/*.json linguist-language=jsonc
+.zed/*.json linguist-language=jsonc
