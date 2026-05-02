@@ -72,7 +72,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^20.5.0":
+"@commitlint/cli@npm:20.5.0":
   version: 20.5.0
   resolution: "@commitlint/cli@npm:20.5.0"
   dependencies:
@@ -89,7 +89,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^20.5.0":
+"@commitlint/config-conventional@npm:20.5.0":
   version: 20.5.0
   resolution: "@commitlint/config-conventional@npm:20.5.0"
   dependencies:
@@ -309,7 +309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:^6.1.0":
+"@favware/cliff-jumper@npm:6.1.0":
   version: 6.1.0
   resolution: "@favware/cliff-jumper@npm:6.1.0"
   dependencies:
@@ -343,7 +343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/npm-deprecate@npm:^2.0.0":
+"@favware/npm-deprecate@npm:2.0.0":
   version: 2.0.0
   resolution: "@favware/npm-deprecate@npm:2.0.0"
   dependencies:
@@ -785,7 +785,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.12.2":
+"@types/node@npm:24.12.2":
   version: 24.12.2
   resolution: "@types/node@npm:24.12.2"
   dependencies:
@@ -1992,16 +1992,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "paste.gg@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:^20.5.0"
-    "@commitlint/config-conventional": "npm:^20.5.0"
-    "@favware/cliff-jumper": "npm:^6.1.0"
-    "@favware/npm-deprecate": "npm:^2.0.0"
-    "@types/node": "npm:^24.12.2"
-    prettier: "npm:^3.8.3"
-    pretty-quick: "npm:^4.2.2"
-    tsdown: "npm:^0.21.10"
-    typescript: "npm:^6.0.3"
-    unplugin-replace: "npm:^0.8.0"
+    "@commitlint/cli": "npm:20.5.0"
+    "@commitlint/config-conventional": "npm:20.5.0"
+    "@favware/cliff-jumper": "npm:6.1.0"
+    "@favware/npm-deprecate": "npm:2.0.0"
+    "@types/node": "npm:24.12.2"
+    prettier: "npm:3.8.3"
+    pretty-quick: "npm:4.2.2"
+    tsdown: "npm:0.21.10"
+    typescript: "npm:6.0.3"
+    unplugin-replace: "npm:0.8.0"
   languageName: unknown
   linkType: soft
 
@@ -2050,7 +2050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.8.3":
+"prettier@npm:3.8.3":
   version: 3.8.3
   resolution: "prettier@npm:3.8.3"
   bin:
@@ -2068,7 +2068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-quick@npm:^4.2.2":
+"pretty-quick@npm:4.2.2":
   version: 4.2.2
   resolution: "pretty-quick@npm:4.2.2"
   dependencies:
@@ -2441,7 +2441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsdown@npm:^0.21.10":
+"tsdown@npm:0.21.10":
   version: 0.21.10
   resolution: "tsdown@npm:0.21.10"
   dependencies:
@@ -2497,7 +2497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^6.0.3":
+"typescript@npm:6.0.3":
   version: 6.0.3
   resolution: "typescript@npm:6.0.3"
   bin:
@@ -2507,7 +2507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^6.0.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>":
   version: 6.0.3
   resolution: "typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"
   bin:
@@ -2566,7 +2566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-replace@npm:^0.8.0":
+"unplugin-replace@npm:0.8.0":
   version: 0.8.0
   resolution: "unplugin-replace@npm:0.8.0"
   dependencies:
