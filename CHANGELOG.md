@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.4](https://github.com/SerenModz21/paste.gg/compare/v1.1.3...v1.1.4) - (2026-05-09)
+
 # [1.1.3](https://github.com/SerenModz21/paste.gg/compare/v1.1.2...v1.1.3) - (2025-12-16)
 
 ## 🪞 Styling
