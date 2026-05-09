@@ -1985,7 +1985,7 @@ __metadata:
     pretty-quick: "npm:4.2.2"
     tsdown: "npm:0.21.10"
     typescript: "npm:6.0.3"
-    unplugin-replace: "npm:0.8.0"
+    unplugin-replace: "npm:0.9.0"
   languageName: unknown
   linkType: soft
 
@@ -2543,14 +2543,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-replace@npm:0.8.0":
-  version: 0.8.0
-  resolution: "unplugin-replace@npm:0.8.0"
+"unplugin-replace@npm:0.9.0":
+  version: 0.9.0
+  resolution: "unplugin-replace@npm:0.9.0"
   dependencies:
     js-tokens: "npm:^10.0.0"
     rolldown-string: "npm:^0.3.0"
     unplugin: "npm:^3.0.0"
-  checksum: 10/167a483295baa6bee65d850bb6e2950177eaa8a6c4402ac761acec761defef336bd476bf07762db23de2709f117597fb71ad5631b042f4a94b2d9f8d8358a3b3
+  checksum: 10/60fbdb03915e63ad407967bd9a5967fb6b4c24e3fa38cfd0b68fb85e4be2a8bae4516451437bb7aed25c5a0af81d22fcae1940b4439f5130db2cf0db44bd0c9f
   languageName: node
   linkType: hard
 

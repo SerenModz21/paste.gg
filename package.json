@@ -52,7 +52,7 @@
         "pretty-quick": "4.2.2",
         "tsdown": "0.21.10",
         "typescript": "6.0.3",
-        "unplugin-replace": "0.8.0"
+        "unplugin-replace": "0.9.0"
     },
     "engines": {
         "node": ">=18"
