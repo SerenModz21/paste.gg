@@ -779,12 +779,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.13.0":
-  version: 24.13.0
-  resolution: "@types/node@npm:24.13.0"
+"@types/node@npm:24.13.1":
+  version: 24.13.1
+  resolution: "@types/node@npm:24.13.1"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10/13e69ffde58cfdade78fba370afaa193b5666962a9c9e8bbf0281ba2447e13c36638b8d8abc7be894cc87ab3abf60560bbb65804f5d9e56bcd30aae1e4d4de24
+  checksum: 10/44aef6ada09b68f69b22d8dc6e84e2a40135af97ee4c0c5203c77fc27d7363a1b3659b71e82e4530de7786ed5e4ea6dd42579dcc9708dea9c1ab40e5bdd9c48e
   languageName: node
   linkType: hard
 
@@ -1952,8 +1952,8 @@ __metadata:
     "@commitlint/config-conventional": "npm:21.0.2"
     "@favware/cliff-jumper": "npm:6.1.0"
     "@favware/npm-deprecate": "npm:2.0.0"
-    "@types/node": "npm:24.13.0"
-    prettier: "npm:3.8.3"
+    "@types/node": "npm:24.13.1"
+    prettier: "npm:3.8.4"
     pretty-quick: "npm:4.2.2"
     tsdown: "npm:0.22.2"
     typescript: "npm:6.0.3"
@@ -2006,12 +2006,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.8.3":
-  version: 3.8.3
-  resolution: "prettier@npm:3.8.3"
+"prettier@npm:3.8.4":
+  version: 3.8.4
+  resolution: "prettier@npm:3.8.4"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/4b3b12cbb29e4c96bed936e5d070167552500c18d37676fb3e0caae6199c42860662608e4dc116230698f6e2bb0267ef2548158224c92d40f188d309d72fdd6f
+  checksum: 10/54684a3cc6689238692b29fab541c01934af7677be94c02293ba49981a1ac121c8bebe2a865f0c3b963e99d208f847c53aed354cc0ce8750e2d45791d64506c5
   languageName: node
   linkType: hard
 
