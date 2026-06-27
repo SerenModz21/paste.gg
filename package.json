@@ -43,8 +43,8 @@
         "check-update": "cliff-jumper --dry-run"
     },
     "devDependencies": {
-        "@commitlint/cli": "21.0.2",
-        "@commitlint/config-conventional": "21.0.2",
+        "@commitlint/cli": "21.1.0",
+        "@commitlint/config-conventional": "21.1.0",
         "@favware/cliff-jumper": "6.1.0",
         "@favware/npm-deprecate": "2.0.0",
         "@types/node": "24.13.2",
