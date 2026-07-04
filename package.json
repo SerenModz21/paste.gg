@@ -43,12 +43,12 @@
         "check-update": "cliff-jumper --dry-run"
     },
     "devDependencies": {
-        "@commitlint/cli": "21.1.0",
-        "@commitlint/config-conventional": "21.1.0",
+        "@commitlint/cli": "21.2.0",
+        "@commitlint/config-conventional": "21.2.0",
         "@favware/cliff-jumper": "6.1.0",
         "@favware/npm-deprecate": "2.0.0",
         "@types/node": "24.13.2",
-        "prettier": "3.8.4",
+        "prettier": "3.9.4",
         "pretty-quick": "4.2.2",
         "tsdown": "0.22.3",
         "typescript": "6.0.3",
