@@ -47,7 +47,7 @@
         "@commitlint/config-conventional": "21.2.0",
         "@favware/cliff-jumper": "6.1.0",
         "@favware/npm-deprecate": "2.0.0",
-        "@types/node": "24.13.2",
+        "@types/node": "24.13.3",
         "prettier": "3.9.4",
         "pretty-quick": "4.2.2",
         "tsdown": "0.22.3",
