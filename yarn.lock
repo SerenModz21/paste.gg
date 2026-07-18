@@ -2174,7 +2174,7 @@ __metadata:
     "@types/node": "npm:24.13.3"
     prettier: "npm:3.9.5"
     pretty-quick: "npm:4.2.2"
-    tsdown: "npm:0.22.7"
+    tsdown: "npm:0.22.8"
     typescript: "npm:7.0.2"
     unplugin-replace: "npm:0.9.0"
   languageName: unknown
@@ -2314,32 +2314,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rolldown-plugin-dts@npm:^0.27.8":
-  version: 0.27.9
-  resolution: "rolldown-plugin-dts@npm:0.27.9"
+"rolldown-plugin-dts@npm:^0.27.9":
+  version: 0.27.11
+  resolution: "rolldown-plugin-dts@npm:0.27.11"
   dependencies:
     dts-resolver: "npm:^3.0.0"
     get-tsconfig: "npm:5.0.0-beta.5"
     obug: "npm:^2.1.3"
     yuku-ast: "npm:^0.1.7"
-    yuku-codegen: "npm:^0.6.1"
-    yuku-parser: "npm:^0.6.1"
+    yuku-codegen: "npm:^0.6.3"
+    yuku-parser: "npm:^0.6.3"
   peerDependencies:
-    "@ts-macro/tsc": ^0.3.6
     "@typescript/native-preview": "*"
+    "@volar/typescript": ~2.4.0
     rolldown: ^1.0.0
     typescript: ^5.0.0 || ^6.0.0 || ~7.0.0
     vue-tsc: ~3.2.0 || ~3.3.0
   peerDependenciesMeta:
-    "@ts-macro/tsc":
-      optional: true
     "@typescript/native-preview":
+      optional: true
+    "@volar/typescript":
       optional: true
     typescript:
       optional: true
     vue-tsc:
       optional: true
-  checksum: 10/31eaff14529e63898bd597479246513b25ce472b640d3986f9bad107221a5b451a7656cb981d7a5292fc2b19d5da9f2cebd9311d492c734a98c1710d9019e1c3
+  checksum: 10/b5cbcc415edad60beb155cb5a28d3b2613fd1bbfd301d244e2b3516562e03f69704bef77a11acfe24a8417b1c69bfdae069f4ee81cca11d3e7ca02efab84f049
   languageName: node
   linkType: hard
 
@@ -2602,9 +2602,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsdown@npm:0.22.7":
-  version: 0.22.7
-  resolution: "tsdown@npm:0.22.7"
+"tsdown@npm:0.22.8":
+  version: 0.22.8
+  resolution: "tsdown@npm:0.22.8"
   dependencies:
     ansis: "npm:^4.3.1"
     cac: "npm:^7.0.0"
@@ -2615,7 +2615,7 @@ __metadata:
     obug: "npm:^2.1.3"
     picomatch: "npm:^4.0.5"
     rolldown: "npm:~1.1.5"
-    rolldown-plugin-dts: "npm:^0.27.8"
+    rolldown-plugin-dts: "npm:^0.27.9"
     semver: "npm:^7.8.5"
     tinyexec: "npm:^1.2.4"
     tinyglobby: "npm:^0.2.17"
@@ -2623,8 +2623,8 @@ __metadata:
     unconfig-core: "npm:^7.5.0"
   peerDependencies:
     "@arethetypeswrong/core": ^0.18.1
-    "@tsdown/css": 0.22.7
-    "@tsdown/exe": 0.22.7
+    "@tsdown/css": 0.22.8
+    "@tsdown/exe": 0.22.8
     "@vitejs/devtools": "*"
     publint: ^0.3.8
     tsx: "*"
@@ -2652,7 +2652,7 @@ __metadata:
       optional: true
   bin:
     tsdown: ./dist/run.mjs
-  checksum: 10/65a7a6195d8994664c49cc58f0acc149eb0053034c3d4a435858e75925085269cb66a7962a8a3bff7f6a252480241dd01ad138c775eb25d6d2ab41bc4dcb3c1d
+  checksum: 10/dd8ad6df7eed8391e955fce7afbd6682cd4e604f21fb5145e056498f5a0f681f2efdcf4033e6ae072998b27ef11cc6a8ebe0ac8a9429a5f1903f6c1d6d386bb3
   languageName: node
   linkType: hard
 
@@ -3021,7 +3021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yuku-codegen@npm:^0.6.1":
+"yuku-codegen@npm:^0.6.3":
   version: 0.6.5
   resolution: "yuku-codegen@npm:0.6.5"
   dependencies:
@@ -3064,7 +3064,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yuku-parser@npm:^0.6.1":
+"yuku-parser@npm:^0.6.3":
   version: 0.6.5
   resolution: "yuku-parser@npm:0.6.5"
   dependencies:
