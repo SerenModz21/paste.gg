@@ -48,9 +48,9 @@
         "@favware/cliff-jumper": "6.1.0",
         "@favware/npm-deprecate": "2.0.0",
         "@types/node": "24.13.3",
-        "prettier": "3.9.5",
+        "prettier": "3.9.6",
         "pretty-quick": "4.2.2",
-        "tsdown": "0.22.9",
+        "tsdown": "0.22.13",
         "typescript": "7.0.2",
         "unplugin-replace": "0.9.0"
     },
