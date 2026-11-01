@@ -2063,7 +2063,7 @@ __metadata:
     "@types/node": "npm:24.19.2"
     prettier: "npm:3.9.10"
     pretty-quick: "npm:4.2.2"
-    tsdown: "npm:0.23.3"
+    tsdown: "npm:0.23.4"
     typescript: "npm:7.0.2"
     unplugin-replace: "npm:0.9.1"
   languageName: unknown
@@ -2495,18 +2495,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tree-kill@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "tree-kill@npm:1.2.2"
-  bin:
-    tree-kill: cli.js
-  checksum: 10/49117f5f410d19c84b0464d29afb9642c863bc5ba40fcb9a245d474c6d5cc64d1b177a6e6713129eb346b40aebb9d4631d967517f9fbe8251c35b21b13cd96c7
+"tinyps@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "tinyps@npm:0.5.1"
+  checksum: 10/5ae6ce351831bef85b4325445cbbb6db6bb8c83c7670bad10f5ed67e8fbdf76ad4b4cb468524085c73027222ca466ad9e184ce8a94f1abf633e0e963b171ddba
   languageName: node
   linkType: hard
 
-"tsdown@npm:0.23.3":
-  version: 0.23.3
-  resolution: "tsdown@npm:0.23.3"
+"tsdown@npm:0.23.4":
+  version: 0.23.4
+  resolution: "tsdown@npm:0.23.4"
   dependencies:
     cac: "npm:^7.1.0"
     defu: "npm:^6.1.7"
@@ -2519,13 +2517,13 @@ __metadata:
     rolldown-plugin-dts: "npm:^0.28.8"
     tinyexec: "npm:^1.3.1"
     tinyglobby: "npm:^0.2.17"
-    tree-kill: "npm:^1.2.2"
+    tinyps: "npm:^0.5.1"
     unconfig-core: "npm:^7.5.0"
     verkit: "npm:^0.5.0"
   peerDependencies:
     "@arethetypeswrong/core": ^0.18.1
-    "@tsdown/css": 0.23.3
-    "@tsdown/exe": 0.23.3
+    "@tsdown/css": 0.23.4
+    "@tsdown/exe": 0.23.4
     "@vitejs/devtools": "*"
     publint: ^0.3.8
     tsx: "*"
@@ -2553,7 +2551,7 @@ __metadata:
       optional: true
   bin:
     tsdown: ./dist/run.mjs
-  checksum: 10/73110848d2a97ad7ce9f9c1bcc89047d627a41df460f505a9bfbdfeb3146624a91ae0b7043225dc1da7cfc8a917e8d5b7c678f10a7562dd6de73d090a91d0e96
+  checksum: 10/2392ae355cc2b77c0457d350d41954cbe65c8707bc03ea6e699cf4a76d694f783d5e5255fdc3d96a14488c0b8a3b4c9667bc3187c002f4c28da4cfbf6c9c0b64
   languageName: node
   linkType: hard
 
