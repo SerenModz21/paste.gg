@@ -789,12 +789,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:26.6.7":
-  version: 26.6.7
-  resolution: "@types/node@npm:26.6.7"
+"@types/node@npm:26.6.10":
+  version: 26.6.10
+  resolution: "@types/node@npm:26.6.10"
   dependencies:
     undici-types: "npm:~8.9.0"
-  checksum: 10/6990282cd7f25609da26bca026f9ab62c94bf67b82c38b81608a8d6b34d51b7e91a95831b0dc55fa9c9d8066bc3b0def95308b1a61a275e6dd228ef82689bc44
+  checksum: 10/b4cd3369bcff5fa639b54748a6abda6e860e0c188a9b4c9f60cb6b58e683eff86697d1fc10eea1ce2c59c5daf21a91752387613b8b931062700a61b9b5ed2bf4
   languageName: node
   linkType: hard
 
@@ -2071,7 +2071,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:21.2.4"
     "@favware/cliff-jumper": "npm:6.1.0"
     "@favware/npm-deprecate": "npm:2.0.0"
-    "@types/node": "npm:26.6.7"
+    "@types/node": "npm:26.6.10"
     prettier: "npm:3.10.1"
     pretty-quick: "npm:4.2.2"
     tsdown: "npm:0.23.7"
